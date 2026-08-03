@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIMA 2026 — Estructura Financiera</title>
+<style>
+  :root{
+    --navy:#0b2545; --navy2:#13315c; --gold:#c9a227; --gold-l:#e8c95a;
+    --bg:#f4f6fa; --card:#ffffff; --ink:#1c2733; --muted:#5b6b7b;
+    --ok:#1a7f4e; --bad:#c0392b;
+    --edit-bg:#fff6cf; --edit-border:#2563eb;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Segoe UI', Arial, sans-serif; background:var(--bg); color:var(--ink);}
+
+  header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%); color:#fff;
+    padding:20px 28px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+    border-bottom:4px solid var(--gold);}
+  #logoBox{width:120px; height:90px; background:#fff; border-radius:10px;
+    display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;}
+  #logoImg{max-width:100%; max-height:100%; object-fit:contain; display:none;}
+  .head-titles{flex:1; min-width:260px;}
+  .head-titles h1{font-size:1.7rem; letter-spacing:1px;}
+  .head-titles h1 span{color:var(--gold-l);}
+  .head-titles p{opacity:.85; font-size:.9rem; margin-top:3px;}
+  .head-actions{display:flex; gap:10px;}
+  .btn{background:var(--gold); color:var(--navy); border:none; padding:9px 16px;
+    border-radius:6px; font-weight:600; cursor:pointer; font-size:.85rem;}
+  .btn:hover{background:var(--gold-l);}
+  .btn.ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.5);}
+
+  main{max-width:1280px; margin:24px auto; padding:0 20px;}
+
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-bottom:26px;}
+  .kpi{background:var(--card); border-radius:12px; padding:16px 18px;
+    box-shadow:0 2px 8px rgba(11,37,69,.08); border-top:4px solid var(--navy);}
+  .kpi.gold{border-top-color:var(--gold);}
+  .kpi .lbl{font-size:.75rem; text-transform:uppercase; letter-spacing:.6px; color:var(--muted);}
+  .kpi .val{font-size:1.55rem; font-weight:700; margin-top:4px;}
+  .kpi .val.ok{color:var(--ok);} .kpi .val.bad{color:var(--bad);}
+  .kpi .sub{font-size:.75rem; color:var(--muted); margin-top:2px;}
+
+  section{background:var(--card); border-radius:12px; padding:22px;
+    box-shadow:0 2px 8px rgba(11,37,69,.08); margin-bottom:24px;}
+  section h2{font-size:1.05rem; color:var(--navy); text-transform:uppercase; letter-spacing:.8px;
+    border-bottom:2px solid var(--gold); padding-bottom:8px; margin-bottom:6px;}
+  section .note{font-size:.78rem; color:var(--muted); margin-bottom:14px;}
+
+  table{width:100%; border-collapse:collapse; font-size:.88rem;}
+  th{background:var(--navy); color:#fff; padding:9px 10px; text-align:left; font-size:.78rem;
+    text-transform:uppercase; letter-spacing:.4px;}
+  td{padding:8px 10px; border-bottom:1px solid #e3e8ef;}
+  tr.total td{font-weight:700; background:#eef2f8; border-top:2px solid var(--navy);}
+  td.num, th.num{text-align:right; font-variant-numeric:tabular-nums;}
+  .neg{color:var(--bad);} .pos{color:var(--ok);}
+
+  input[type=number], select{background:var(--edit-bg); border:1.5px solid var(--edit-border);
+    border-radius:5px; padding:5px 7px; width:90px; font-size:.88rem; color:#1a3a8f; font-weight:600;}
+  input[type=number]:focus{outline:2px solid var(--edit-border);}
+  input[type=range]{accent-color:var(--gold); width:100%;}
+
+  .grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;}
+  .sup-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px;}
+  .sup-item{border:1px solid #e3e8ef; border-radius:8px; padding:10px 12px;}
+  .sup-item label{display:block; font-size:.74rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.4px; margin-bottom:5px;}
+  .sup-item .origin{font-size:.68rem; color:#98a5b3; margin-top:5px;}
+
+  .scenario-btns{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 4px;}
+  .scenario-btns button{background:#eef2f8; border:1px solid #c6d2e2; border-radius:20px;
+    padding:6px 14px; cursor:pointer; font-size:.8rem; color:var(--navy); font-weight:600;}
+  .scenario-btns button:hover{background:var(--gold-l); border-color:var(--gold);}
+  .slider-row{display:flex; align-items:center; gap:14px; margin-top:12px;
+    background:#f8fafd; border:1px solid #e3e8ef; border-radius:8px; padding:12px 16px;}
+  .slider-row b{color:var(--navy); min-width:150px; font-size:.85rem;}
+  .slider-row output{font-weight:700; color:var(--navy); min-width:52px; text-align:right;}
+
+  .chart-wrap{display:flex; gap:30px; flex-wrap:wrap; align-items:center;}
+  .legend{font-size:.8rem;}
+  .legend div{display:flex; align-items:center; gap:8px; margin-bottom:6px;}
+  .legend i{width:12px; height:12px; border-radius:3px; display:inline-block;}
+  .bars{flex:1; min-width:300px;}
+  .bar-row{margin-bottom:12px;}
+  .bar-row .bar-lbl{font-size:.8rem; color:var(--muted); display:flex; justify-content:space-between;}
+  .bar-track{background:#e9edf3; border-radius:5px; height:22px; margin-top:3px;}
+  .bar-fill{height:100%; border-radius:5px; background:var(--navy2); transition:width .4s;
+    display:flex; align-items:center; justify-content:flex-end; padding-right:6px;
+    color:#fff; font-size:.72rem; font-weight:600; min-width:2px;}
+  .bar-fill.gold{background:var(--gold);} .bar-fill.ok{background:var(--ok);} .bar-fill.bad{background:var(--bad);}
+
+  footer{max-width:1280px; margin:0 auto 40px; padding:0 20px; font-size:.78rem; color:var(--muted);}
+  footer ul{margin:8px 0 0 18px;}
+
+  @media print{
+    header .head-actions{display:none;}
+    body{background:#fff;}
+    section{box-shadow:none; border:1px solid #ddd;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="logoBox">
+    <img id="logoImg" alt="Logo">
+    <svg id="logoFallback" width="100" height="72" viewBox="0 0 100 72">
+      <polygon points="50,4 90,26 90,50 50,68 10,50 10,26" fill="none" stroke="#0b2545" stroke-width="3"/>
+      <text x="50" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="#0b2545">CIDEA</text>
+      <text x="50" y="48" text-anchor="middle" font-size="5.5" fill="#c9a227">CÁMARA INMOBILIARIA</text>
+      <text x="50" y="55" text-anchor="middle" font-size="5.5" fill="#c9a227">DE ANZOÁTEGUI</text>
+    </svg>
+  </div>
+  <div class="head-titles">
+    <h1>CIMA <span>2026</span> — Estructura Financiera</h1>
+    <p>Cumbre de Reactivación Económica e Innovación Anzoátegui 2026 · El Futuro del Territorio</p>
+    <p>Hotel Maremares, Gran Salón · Sábado 24 y Domingo 25 de octubre de 2026</p>
+  </div>
+  <div class="head-actions">
+    <label class="btn">Subir logo<input type="file" id="logoUpload" accept="image/*" hidden></label>
+    <button class="btn ghost" onclick="window.print()">Imprimir / PDF</button>
+  </div>
+</header>
+
+<main>
+  <!-- KPIs -->
+  <div class="kpis">
+    <div class="kpi"><div class="lbl">Total costos</div><div class="val" id="kpiCostos">—</div><div class="sub">incluye deuda +Stage</div></div>
+    <div class="kpi gold"><div class="lbl">Ingresos totales</div><div class="val" id="kpiIngresos">—</div><div class="sub">entradas + patrocinio</div></div>
+    <div class="kpi"><div class="lbl">Resultado</div><div class="val" id="kpiResultado">—</div><div class="sub" id="kpiResSub">superávit / déficit</div></div>
+    <div class="kpi gold"><div class="lbl">Brecha break-even (patrocinio)</div><div class="val" id="kpiBrecha">—</div><div class="sub" id="kpiBrechaSub">—</div></div>
+  </div>
+
+  <!-- SUPUESTOS -->
+  <section>
+    <h2>Supuestos y variables</h2>
+    <p class="note">Celdas editables (amarillo/azul): cambia cualquier valor y todo el modelo se recalcula al instante.</p>
+    <div class="sup-grid" id="supGrid"></div>
+  </section>
+
+  <div class="grid2">
+    <!-- COSTOS -->
+    <section>
+      <h2>Estructura de costos</h2>
+      <p class="note">Calculada en vivo a partir de los supuestos.</p>
+      <table><thead><tr><th>Concepto</th><th class="num">Costo (USD)</th></tr></thead>
+      <tbody id="costBody"></tbody></table>
+    </section>
+
+    <!-- PATROCINIO -->
+    <section>
+      <h2>Plan de patrocinio — Stands 2×2 m</h2>
+      <p class="note">Ajusta el % vendido por nivel para simular escenarios de venta.</p>
+      <table><thead><tr>
+        <th>Nivel</th><th class="num">Precio</th><th class="num">Disp.</th>
+        <th class="num">% vend.</th><th class="num">Vend.</th><th class="num">Subtotal</th>
+      </tr></thead>
+      <tbody id="sponsBody"></tbody></table>
+      <div class="slider-row">
+        <b>% vendido global</b>
+        <input type="range" id="globalPct" min="0" max="100" step="5" value="100">
+        <output id="globalPctOut">100%</output>
+      </div>
+      <div class="scenario-btns">
+        <button onclick="setScenario(100)">Pleno · 100%</button>
+        <button onclick="setScenario(75)">Alto · 75%</button>
+        <button onclick="setScenario(50)">Conservador · 50%</button>
+        <button onclick="setScenario(25)">Bajo · 25%</button>
+      </div>
+      <p class="note" style="margin-top:10px" id="benefNote">Beneficios Nivel III: logo en pantalla (rotativo), mención en evento y mención en Instagram.</p>
+    </section>
+  </div>
+
+  <!-- RESUMEN -->
+  <section>
+    <h2>Resumen financiero y break-even</h2>
+    <div class="grid2">
+      <div>
+        <table><tbody id="summaryBody"></tbody></table>
+      </div>
+      <div>
+        <p class="note">Escenarios de venta de stands (% proporcional en todos los niveles. El almuerzo lo cubre cada asistente).</p>
+        <table><thead><tr>
+          <th>Escenario</th><th class="num">% stands</th><th class="num">Patrocinio</th><th class="num">Resultado</th>
+        </tr></thead><tbody id="scenarioBody"></tbody></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRÁFICOS -->
+  <section>
+    <h2>Visualización</h2>
+    <div class="chart-wrap">
+      <div>
+        <svg id="donut" width="220" height="220" viewBox="0 0 220 220"></svg>
+      </div>
+      <div class="legend" id="donutLegend"></div>
+      <div class="bars" id="bars"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>Notas del modelo:</b>
+  <ul>
+    <li>El almuerzo lo cubre cada asistente por su cuenta (restaurante del hotel disponible).</li>
+    <li>Los stands (2×2 m) no tienen costo de montaje para la Cámara; cada patrocinante organiza el suyo.</li>
+    <li>La deuda pendiente con +Stage (USD 2.500) debe honrarse con este evento.</li>
+    <li>Los valores marcados como "estimado" en los supuestos pueden refinarse con cotizaciones reales.</li>
+  </ul>
+</footer>
+
+<script>
+// ===================== ESTADO =====================
+const S = {
+  asistentes:350, precio:20, coffee:3, nBreaks:4,
+  salonDia:500, dias:2, streaming:600, av:2000, multimedia:600,
+  personal:300, ig:250, representacion:600, violinista:200,
+  brindis:700, honorarios:2000, deuda:2500
+};
+const SUP = [
+  ['asistentes','Asistentes efectivos','Dato del usuario'],
+  ['precio','Precio entrada (USD/persona)','Tope máximo definido'],
+  ['coffee','Costo coffee break (USD/pers.)','Café, galletas, jugos, frutas, sándwiches'],
+  ['nBreaks','Número de coffee breaks','Según agenda: 10:45 y 15:45, ambos días'],
+  ['salonDia','Alquiler Gran Salón (USD/día)','Incluye sillas — Hotel Maremares'],
+  ['dias','Días de alquiler del salón','24 y 25 de octubre'],
+  ['streaming','Streaming (USD)','Dato del usuario'],
+  ['av','Equipo audiovisual (USD)','Pantalla / proyector / sonido / mics — estimado'],
+  ['multimedia','Multimedia (USD)','Camarógrafo + fotógrafo — estimado'],
+  ['personal','Personal registro/protocolo (USD)','~8 personas × USD 35 — estimado'],
+  ['ig','Campaña Instagram (USD)','Solo pauta, no producción — estimado'],
+  ['representacion','Gastos de representación Cámara (USD)','Transporte, combustible, viáticos — estimado'],
+  ['violinista','Violinista brindis (USD)','Estimado'],
+  ['brindis','Brindis: vino e insumos (USD)','~USD 2/persona en vino + servicio — estimado'],
+  ['honorarios','Honorarios expositores (USD)','Estimado entre todos'],
+  ['deuda','Deuda pendiente +Stage (USD)','Debe honrarse con este evento']
+];
+const tiers = [
+  {nivel:'I',  precio:1500, disp:0,  pct:100},
+  {nivel:'II', precio:800,  disp:0,  pct:100},
+  {nivel:'III',precio:400,  disp:22, pct:100},
+  {nivel:'IV', precio:120,  disp:25, pct:100}
+];
+const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+
+// ===================== COSTOS =====================
+function costRows(){
+  return [
+    ['Alquiler Gran Salón (Maremares)', S.salonDia*S.dias],
+    ['Equipo audiovisual (pantalla/proyector/sonido/mics)', S.av],
+    ['Streaming', S.streaming],
+    ['Coffee break ('+S.nBreaks+'×, todos los asistentes)', S.coffee*S.asistentes*S.nBreaks],
+    ['Brindis (vino e insumos)', S.brindis],
+    ['Personal de registro / protocolo', S.personal],
+    ['Multimedia (camarógrafo + fotógrafo)', S.multimedia],
+    ['Campaña Instagram', S.ig],
+    ['Gastos de representación (Cámara)', S.representacion],
+    ['Violinista (brindis)', S.violinista],
+    ['Honorarios expositores', S.honorarios],
+    ['Deuda pendiente con +Stage', S.deuda]
+  ];
+}
+const totalCostos = () => costRows().reduce((a,r)=>a+r[1],0);
+const ingresoEntradas = () => S.asistentes*S.precio;
+const capPatrocinio = () => tiers.reduce((a,t)=>a+t.precio*t.disp,0);
+const ingresoPatrocinio = () => tiers.reduce((a,t)=>a+t.precio*Math.round(t.disp*t.pct/100),0);
+const ingresoPatrocinioExact = pct => tiers.reduce((a,t)=>a+t.precio*t.disp*pct/100,0);
+
+// ===================== RENDER =====================
+function render(){
+  const costos = totalCostos(), entradas = ingresoEntradas(), patro = ingresoPatrocinio();
+  const ingresos = entradas + patro, resultado = ingresos - costos;
+  const brecha = Math.max(0, costos - entradas);
+  const pctNec = capPatrocinio()>0 ? Math.min(100, brecha/capPatrocinio()*100) : 0;
+
+  document.getElementById('kpiCostos').textContent = fmt.format(costos);
+  document.getElementById('kpiIngresos').textContent = fmt.format(ingresos);
+  const kr = document.getElementById('kpiResultado');
+  kr.textContent = fmt.format(resultado);
+  kr.className = 'val ' + (resultado>=0?'ok':'bad');
+  document.getElementById('kpiResSub').textContent = resultado>=0?'superávit':'déficit';
+  document.getElementById('kpiBrecha').textContent = fmt.format(brecha);
+  document.getElementById('kpiBrechaSub').textContent =
+    '= ' + pctNec.toFixed(1) + '% de la capacidad de stands vendida';
+
+  // Costos
+  const cb = document.getElementById('costBody');
+  cb.innerHTML = costRows().map(r=>
+    `<tr><td>${r[0]}</td><td class="num">${fmt.format(r[1])}</td></tr>`).join('')
+    + `<tr class="total"><td>TOTAL COSTOS</td><td class="num">${fmt.format(costos)}</td></tr>`;
+
+  // Patrocinio
+  tiers.forEach((t,i)=>{
+    const sold = Math.round(t.disp*t.pct/100);
+    document.getElementById('sold'+i).textContent = sold;
+    document.getElementById('sub'+i).textContent = fmt.format(sold*t.precio);
+  });
+  const totSold = tiers.reduce((a,t)=>a+Math.round(t.disp*t.pct/100),0);
+  document.getElementById('sponsTotal').textContent = fmt.format(patro);
+  document.getElementById('soldTot').textContent = totSold;
+
+  // Resumen
+  const res = resultado>=0;
+  document.getElementById('summaryBody').innerHTML = `
+    <tr><td>Total costos</td><td class="num">${fmt.format(costos)}</td></tr>
+    <tr><td>Ingresos por entrada (${S.asistentes} × ${fmt.format(S.precio)})</td><td class="num">${fmt.format(entradas)}</td></tr>
+    <tr><td>Ingresos por patrocinio</td><td class="num">${fmt.format(patro)}</td></tr>
+    <tr><td>Ingresos totales</td><td class="num">${fmt.format(ingresos)}</td></tr>
+    <tr class="total"><td>Resultado (${res?'superávit':'déficit'})</td>
+        <td class="num ${res?'pos':'neg'}">${fmt.format(resultado)}</td></tr>
+    <tr class="total"><td>Brecha mínima a cubrir con patrocinio (break-even)</td>
+        <td class="num">${fmt.format(brecha)}</td></tr>`;
+
+  // Escenarios
+  const esc = [['Pleno',100],['Alto',75],['Conservador',50],['Bajo',25]];
+  document.getElementById('scenarioBody').innerHTML = esc.map(([n,p])=>{
+    const ing = ingresoPatrocinioExact(p), r = entradas + ing - costos;
+    return `<tr><td>${n}</td><td class="num">${p}%</td><td class="num">${fmt.format(ing)}</td>
+      <td class="num ${r>=0?'pos':'neg'}">${fmt.format(r)}</td></tr>`;
+  }).join('');
+
+  drawDonut(); drawBars(costos, entradas, patro, ingresos, resultado);
+}
+
+// ===================== GRÁFICOS =====================
+const CATS = [
+  ['#0b2545','Salón + AV + Streaming', ()=>S.salonDia*S.dias+S.av+S.streaming],
+  ['#c9a227','Coffee break + Brindis', ()=>S.coffee*S.asistentes*S.nBreaks+S.brindis],
+  ['#3d6ea5','Producción y logística', ()=>S.personal+S.multimedia+S.violinista],
+  ['#7fa8d9','Marketing (Instagram)', ()=>S.ig],
+  ['#8c6d1f','Representación Cámara', ()=>S.representacion],
+  ['#5b8c5a','Honorarios expositores', ()=>S.honorarios],
+  ['#a63d40','Deuda +Stage', ()=>S.deuda]
+];
+function drawDonut(){
+  const total = CATS.reduce((a,c)=>a+c[2](),0)||1;
+  const r=80, C=2*Math.PI*r; let acc=0, svg='';
+  CATS.forEach(c=>{
+    const v=c[2](), f=v/total;
+    svg += `<circle cx="110" cy="110" r="${r}" fill="none" stroke="${c[0]}" stroke-width="34"
+      stroke-dasharray="${f*C} ${C}" stroke-dashoffset="${-acc*C}"
+      transform="rotate(-90 110 110)"><title>${c[1]}: ${fmt.format(v)}</title></circle>`;
+    acc+=f;
+  });
+  svg += `<text x="110" y="106" text-anchor="middle" font-size="13" fill="#5b6b7b">Total</text>
+          <text x="110" y="126" text-anchor="middle" font-size="17" font-weight="bold" fill="#0b2545">${fmt.format(total)}</text>`;
+  document.getElementById('donut').innerHTML = svg;
+  document.getElementById('donutLegend').innerHTML = CATS.map(c=>
+    `<div><i style="background:${c[0]}"></i>${c[1]} — <b>${fmt.format(c[2]())}</b></div>`).join('');
+}
+function drawBars(costos, entradas, patro, ingresos, resultado){
+  const max = Math.max(costos, ingresos, 1);
+  const rows = [
+    ['Total costos', costos, '', costos],
+    ['Ingresos entradas', entradas, 'gold', entradas],
+    ['Ingresos patrocinio', patro, 'gold', patro],
+    ['Ingresos totales', ingresos, '', ingresos],
+    ['Resultado', Math.abs(resultado), resultado>=0?'ok':'bad', resultado]
+  ];
+  document.getElementById('bars').innerHTML = rows.map(([l,v,c,val])=>`
+    <div class="bar-row">
+      <div class="bar-lbl"><span>${l}</span><span>${fmt.format(val)}</span></div>
+      <div class="bar-track"><div class="bar-fill ${c}" style="width:${Math.max(1.5,v/max*100)}%"></div></div>
+    </div>`).join('');
+}
+
+// ===================== INIT UI =====================
+function init(){
+  // Supuestos
+  const g = document.getElementById('supGrid');
+  SUP.forEach(([k,lbl,orig])=>{
+    const d = document.createElement('div'); d.className='sup-item';
+    d.innerHTML = `<label>${lbl}</label>
+      <input type="number" min="0" value="${S[k]}" id="sup_${k}">
+      <div class="origin">${orig}</div>`;
+    g.appendChild(d);
+    d.querySelector('input').addEventListener('input', e=>{
+      S[k] = Math.max(0, parseFloat(e.target.value)||0); render();
+    });
+  });
+
+  // Patrocinio
+  const sb = document.getElementById('sponsBody');
+  tiers.forEach((t,i)=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td><b>Nivel ${t.nivel}</b></td>
+      <td class="num">${fmt.format(t.precio)}</td>
+      <td class="num">${t.disp}</td>
+      <td class="num"><input type="number" min="0" max="100" value="${t.pct}" style="width:66px" id="pct${i}"></td>
+      <td class="num" id="sold${i}">0</td>
+      <td class="num" id="sub${i}">—</td>`;
+    sb.appendChild(tr);
+    tr.querySelector('input').addEventListener('input', e=>{
+      t.pct = Math.min(100, Math.max(0, parseFloat(e.target.value)||0)); render();
+    });
+  });
+  const tf = document.createElement('tr'); tf.className='total';
+  tf.innerHTML = `<td>TOTAL</td><td></td><td class="num">${tiers.reduce((a,t)=>a+t.disp,0)}</td>
+    <td></td><td class="num" id="soldTot"></td><td class="num" id="sponsTotal"></td>`;
+  sb.appendChild(tf);
+
+  document.getElementById('globalPct').addEventListener('input', e=>{
+    const p = parseFloat(e.target.value);
+    tiers.forEach(t=>{ t.pct=p; document.getElementById('pct'+tiers.indexOf(t)).value=p; });
+    document.getElementById('globalPctOut').textContent = p+'%';
+    render();
+  });
+
+  // Logo
+  const saved = localStorage.getItem('cima2026_logo');
+  if(saved) showLogo(saved);
+  document.getElementById('logoUpload').addEventListener('change', e=>{
+    const f = e.target.files[0]; if(!f) return;
+    const rd = new FileReader();
+    rd.onload = ev => { localStorage.setItem('cima2026_logo', ev.target.result); showLogo(ev.target.result); };
+    rd.readAsDataURL(f);
+  });
+
+  render();
+}
+function showLogo(src){
+  const img = document.getElementById('logoImg');
+  img.src = src; img.style.display='block';
+  document.getElementById('logoFallback').style.display='none';
+}
+function setScenario(p){
+  tiers.forEach((t,i)=>{ t.pct=p; document.getElementById('pct'+i).value=p; });
+  document.getElementById('globalPct').value = p;
+  document.getElementById('globalPctOut').textContent = p+'%';
+  render();
+}
+init();
+</script>
+</body>
+</html>
