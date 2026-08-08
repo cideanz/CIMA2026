@@ -1,436 +1,907 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIMA 2026 — Estructura Financiera</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CIMA 2026 — El Futuro del Territorio | Cumbre de Reactivación Económica e Innovación Anzoátegui</title>
+<meta name="description" content="CIMA 2026 · Cumbre de Reactivación Económica e Innovación Anzoátegui. El Futuro del Territorio. 24 y 25 de octubre de 2026 · Hotel Maremares." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  :root{
-    --navy:#0b2545; --navy2:#13315c; --gold:#c9a227; --gold-l:#e8c95a;
-    --bg:#f4f6fa; --card:#ffffff; --ink:#1c2733; --muted:#5b6b7b;
-    --ok:#1a7f4e; --bad:#c0392b;
-    --edit-bg:#fff6cf; --edit-border:#2563eb;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:'Segoe UI', Arial, sans-serif; background:var(--bg); color:var(--ink);}
+:root{
+  --green-900:#051f17;
+  --green-800:#0a3d2e;
+  --green-700:#1a5f4a;
+  --green-600:#2d7a5f;
+  --green-500:#3fa37d;
+  --green-accent:#4fd99a;
+  --gray-950:#0b0d0c;
+  --gray-900:#141615;
+  --gray-800:#1e2120;
+  --gray-700:#2a2e2c;
+  --gray-600:#3a3f3c;
+  --gray-500:#5a615d;
+  --gray-400:#8a918d;
+  --gray-300:#b8bdb9;
+  --gray-100:#e8ece9;
+  --white:#f5f7f6;
+  --gold:#c9a96e;
+  --grad-hero: radial-gradient(ellipse at top left, #1a5f4a 0%, #0a3d2e 40%, #051f17 80%);
+  --grad-dark: linear-gradient(180deg, #0b0d0c 0%, #141615 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--gray-950);
+  color:var(--gray-100);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.1}
 
-  header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%); color:#fff;
-    padding:20px 28px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;
-    border-bottom:4px solid var(--gold);}
-  #logoBox{width:120px; height:90px; background:#fff; border-radius:10px;
-    display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;}
-  #logoImg{max-width:100%; max-height:100%; object-fit:contain; display:none;}
-  .head-titles{flex:1; min-width:260px;}
-  .head-titles h1{font-size:1.7rem; letter-spacing:1px;}
-  .head-titles h1 span{color:var(--gold-l);}
-  .head-titles p{opacity:.85; font-size:.9rem; margin-top:3px;}
-  .head-actions{display:flex; gap:10px;}
-  .btn{background:var(--gold); color:var(--navy); border:none; padding:9px 16px;
-    border-radius:6px; font-weight:600; cursor:pointer; font-size:.85rem;}
-  .btn:hover{background:var(--gold-l);}
-  .btn.ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.5);}
+/* ===== NAVBAR ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:all .3s ease;
+  backdrop-filter:blur(12px);
+  background:rgba(5,31,23,.6);
+  border-bottom:1px solid rgba(79,217,154,.1);
+}
+.nav.scrolled{background:rgba(5,31,23,.92);padding:.7rem 3rem}
+.nav-logo{display:flex;align-items:center;gap:.8rem;color:var(--white);font-weight:700;text-decoration:none}
+.nav-logo-mark{
+  width:42px;height:42px;border-radius:8px;
+  background:linear-gradient(135deg,var(--green-accent),var(--green-600));
+  display:grid;place-items:center;color:var(--green-900);
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.05em;
+  box-shadow:0 4px 20px rgba(79,217,154,.3);
+}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-text strong{font-size:1.1rem;font-family:'Space Grotesk',sans-serif}
+.nav-logo-text span{font-size:.65rem;color:var(--green-accent);letter-spacing:.2em;text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--gray-300);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--green-accent)}
+.nav-cta{
+  background:var(--green-accent);color:var(--green-900);
+  padding:.65rem 1.4rem;border-radius:6px;text-decoration:none;
+  font-weight:600;font-size:.85rem;transition:all .2s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(79,217,154,.35)}
+.burger{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
 
-  main{max-width:1280px; margin:24px auto; padding:0 20px;}
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  background:var(--grad-hero);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  padding:6rem 3rem 4rem;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(79,217,154,.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(79,217,154,.08) 0%, transparent 40%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(79,217,154,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(79,217,154,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+  pointer-events:none;
+}
+.hero-content{max-width:1200px;width:100%;position:relative;z-index:2;text-align:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.5rem 1.2rem;border:1px solid rgba(79,217,154,.3);
+  border-radius:100px;background:rgba(79,217,154,.08);
+  font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--green-accent);margin-bottom:2rem;font-weight:600;
+}
+.hero-badge i{font-size:.6rem}
+.hero-logo{
+  display:inline-block;margin:0 auto 2rem;
+  padding:1.5rem 2.5rem;border-radius:12px;
+  background:rgba(5,31,23,.5);backdrop-filter:blur(10px);
+  border:1px solid rgba(79,217,154,.2);
+}
+.hero-logo-main{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,8vw,6rem);
+  letter-spacing:.08em;line-height:1;
+  background:linear-gradient(135deg,#fff 0%,var(--green-accent) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-logo-sub{
+  font-size:.85rem;letter-spacing:.35em;color:var(--gray-300);
+  text-transform:uppercase;margin-top:.5rem;font-weight:500;
+}
+.hero h1{
+  font-size:clamp(1.8rem,4vw,3.2rem);
+  color:var(--white);margin:1.5rem auto;max-width:900px;
+  font-weight:700;
+}
+.hero h1 em{
+  font-style:normal;color:var(--green-accent);
+  background:linear-gradient(135deg,var(--green-accent),#fff);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  font-size:clamp(1rem,1.3vw,1.15rem);color:var(--gray-300);
+  max-width:700px;margin:1rem auto 3rem;
+}
+.hero-meta{
+  display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
+  margin-bottom:3rem;
+}
+.hero-meta-item{
+  display:flex;align-items:center;gap:.8rem;
+  padding:.9rem 1.5rem;border-radius:10px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+}
+.hero-meta-item i{color:var(--green-accent);font-size:1.2rem}
+.hero-meta-item strong{display:block;color:var(--white);font-size:.95rem}
+.hero-meta-item span{font-size:.75rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.1em}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{
+  padding:1rem 2rem;border-radius:8px;text-decoration:none;
+  font-weight:600;font-size:.95rem;letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:.7rem;
+  transition:all .3s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--green-accent),var(--green-600));
+  color:var(--green-900);box-shadow:0 10px 30px rgba(79,217,154,.3);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(79,217,154,.5)}
+.btn-secondary{
+  background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,.2);
+}
+.btn-secondary:hover{background:rgba(255,255,255,.08);border-color:var(--green-accent);color:var(--green-accent)}
+.btn i{font-size:.85rem}
 
-  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-bottom:26px;}
-  .kpi{background:var(--card); border-radius:12px; padding:16px 18px;
-    box-shadow:0 2px 8px rgba(11,37,69,.08); border-top:4px solid var(--navy);}
-  .kpi.gold{border-top-color:var(--gold);}
-  .kpi .lbl{font-size:.75rem; text-transform:uppercase; letter-spacing:.6px; color:var(--muted);}
-  .kpi .val{font-size:1.55rem; font-weight:700; margin-top:4px;}
-  .kpi .val.ok{color:var(--ok);} .kpi .val.bad{color:var(--bad);}
-  .kpi .sub{font-size:.75rem; color:var(--muted); margin-top:2px;}
+/* ===== SCROLL INDICATOR ===== */
+.scroll-ind{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  color:var(--gray-400);font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-10px)}}
 
-  section{background:var(--card); border-radius:12px; padding:22px;
-    box-shadow:0 2px 8px rgba(11,37,69,.08); margin-bottom:24px;}
-  section h2{font-size:1.05rem; color:var(--navy); text-transform:uppercase; letter-spacing:.8px;
-    border-bottom:2px solid var(--gold); padding-bottom:8px; margin-bottom:6px;}
-  section .note{font-size:.78rem; color:var(--muted); margin-bottom:14px;}
+/* ===== SECTIONS ===== */
+section{padding:6rem 3rem;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:4rem}
+.eyebrow{
+  display:inline-block;padding:.4rem 1rem;border-radius:100px;
+  background:rgba(79,217,154,.1);color:var(--green-accent);
+  font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+  font-weight:600;margin-bottom:1rem;border:1px solid rgba(79,217,154,.2);
+}
+.section-head h2{
+  font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:1rem;
+}
+.section-head h2 em{
+  font-style:normal;color:var(--green-accent);
+}
+.section-head p{color:var(--gray-400);max-width:700px;margin:0 auto;font-size:1.05rem}
 
-  table{width:100%; border-collapse:collapse; font-size:.88rem;}
-  th{background:var(--navy); color:#fff; padding:9px 10px; text-align:left; font-size:.78rem;
-    text-transform:uppercase; letter-spacing:.4px;}
-  td{padding:8px 10px; border-bottom:1px solid #e3e8ef;}
-  tr.total td{font-weight:700; background:#eef2f8; border-top:2px solid var(--navy);}
-  td.num, th.num{text-align:right; font-variant-numeric:tabular-nums;}
-  .neg{color:var(--bad);} .pos{color:var(--ok);}
+/* ===== EJES TEMÁTICOS ===== */
+.ejes{background:var(--gray-900);position:relative;overflow:hidden}
+.ejes::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--green-accent),transparent);
+}
+.ejes-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+}
+.eje-card{
+  padding:2.5rem 2rem;border-radius:16px;
+  background:linear-gradient(180deg,rgba(26,95,74,.08),rgba(26,95,74,.02));
+  border:1px solid rgba(79,217,154,.15);
+  position:relative;overflow:hidden;transition:all .4s ease;
+}
+.eje-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-accent),var(--green-600));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.eje-card:hover{transform:translateY(-5px);border-color:rgba(79,217,154,.4);background:linear-gradient(180deg,rgba(26,95,74,.15),rgba(26,95,74,.05))}
+.eje-card:hover::before{transform:scaleX(1)}
+.eje-num{
+  font-family:'Bebas Neue',sans-serif;font-size:3.5rem;line-height:1;
+  color:var(--green-accent);opacity:.3;margin-bottom:1rem;
+}
+.eje-card h3{font-size:1.3rem;color:var(--white);margin-bottom:.8rem}
+.eje-card p{color:var(--gray-400);font-size:.95rem}
+.eje-icon{
+  width:50px;height:50px;border-radius:10px;
+  background:rgba(79,217,154,.15);display:grid;place-items:center;
+  color:var(--green-accent);font-size:1.3rem;margin-bottom:1.2rem;
+}
 
-  input[type=number], select{background:var(--edit-bg); border:1.5px solid var(--edit-border);
-    border-radius:5px; padding:5px 7px; width:90px; font-size:.88rem; color:#1a3a8f; font-weight:600;}
-  input[type=number]:focus{outline:2px solid var(--edit-border);}
-  input[type=range]{accent-color:var(--gold); width:100%;}
+/* ===== PROGRAMA ===== */
+.programa{background:var(--grad-dark)}
+.tabs{
+  display:flex;gap:.5rem;justify-content:center;margin-bottom:3rem;flex-wrap:wrap;
+}
+.tab-btn{
+  padding:.9rem 1.8rem;border-radius:8px;background:transparent;
+  border:1px solid rgba(255,255,255,.1);color:var(--gray-400);
+  font-weight:600;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:.7rem;
+  font-family:'Space Grotesk',sans-serif;font-size:.95rem;
+}
+.tab-btn i{font-size:.7rem}
+.tab-btn.active{
+  background:linear-gradient(135deg,var(--green-accent),var(--green-600));
+  color:var(--green-900);border-color:transparent;
+  box-shadow:0 8px 25px rgba(79,217,154,.3);
+}
+.tab-btn:hover:not(.active){border-color:var(--green-accent);color:var(--white)}
+.tab-pane{display:none;animation:fadeIn .4s ease}
+.tab-pane.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.dia-header{
+  text-align:center;margin-bottom:3rem;padding:2rem;
+  background:linear-gradient(135deg,rgba(26,95,74,.15),rgba(26,95,74,.05));
+  border-radius:16px;border:1px solid rgba(79,217,154,.2);
+}
+.dia-header h3{font-size:1.8rem;color:var(--white);margin-bottom:.3rem}
+.dia-header p{color:var(--gray-400)}
+.bloque{margin-bottom:4rem}
+.bloque-head{
+  display:flex;align-items:center;gap:1.2rem;margin-bottom:2rem;
+  padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.bloque-num{
+  font-family:'Bebas Neue',sans-serif;font-size:2.5rem;
+  color:var(--green-accent);opacity:.6;
+}
+.bloque-info h4{font-size:1.4rem;color:var(--white)}
+.bloque-info span{color:var(--gray-400);font-size:.85rem}
+.schedule-list{display:flex;flex-direction:column;gap:1rem}
+.schedule-item{
+  display:grid;grid-template-columns:140px 1fr auto;gap:1.5rem;align-items:center;
+  padding:1.3rem 1.5rem;border-radius:12px;
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);
+  transition:all .3s;
+}
+.schedule-item:hover{background:rgba(79,217,154,.05);border-color:rgba(79,217,154,.25);transform:translateX(5px)}
+.schedule-item.break{
+  background:linear-gradient(90deg,rgba(201,169,110,.08),transparent);
+  border-color:rgba(201,169,110,.2);justify-content:center;grid-template-columns:1fr;text-align:center;
+  color:var(--gold);font-style:italic;padding:1rem;
+}
+.schedule-time{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  color:var(--green-accent);font-size:.95rem;letter-spacing:.02em;
+}
+.schedule-content h5{color:var(--white);font-size:1.05rem;margin-bottom:.3rem;font-weight:600}
+.schedule-content p{color:var(--gray-400);font-size:.85rem}
+.schedule-speaker{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.35rem .9rem;border-radius:100px;
+  background:rgba(79,217,154,.1);border:1px solid rgba(79,217,154,.25);
+  color:var(--green-accent);font-size:.8rem;font-weight:500;
+}
 
-  .grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;}
-  .sup-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px;}
-  .sup-item{border:1px solid #e3e8ef; border-radius:8px; padding:10px 12px;}
-  .sup-item label{display:block; font-size:.74rem; color:var(--muted);
-    text-transform:uppercase; letter-spacing:.4px; margin-bottom:5px;}
-  .sup-item .origin{font-size:.68rem; color:#98a5b3; margin-top:5px;}
+/* ===== EXPOSITORES ===== */
+.expositores{background:var(--gray-900)}
+.speakers-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.2rem;
+}
+.speaker{
+  padding:1.5rem;border-radius:12px;
+  background:linear-gradient(180deg,rgba(26,95,74,.1),rgba(26,95,74,.02));
+  border:1px solid rgba(255,255,255,.06);
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.speaker:hover{border-color:rgba(79,217,154,.3);transform:translateY(-4px);box-shadow:0 15px 30px rgba(0,0,0,.3)}
+.speaker-avatar{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-accent),var(--green-700));
+  display:grid;place-items:center;color:var(--green-900);
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
+  margin-bottom:1rem;
+}
+.speaker h5{color:var(--white);font-size:1rem;margin-bottom:.2rem}
+.speaker-role{color:var(--gray-400);font-size:.78rem;margin-bottom:.7rem}
+.speaker-topic{
+  font-size:.75rem;color:var(--green-accent);
+  padding-top:.7rem;border-top:1px solid rgba(255,255,255,.06);
+  font-weight:500;
+}
 
-  .scenario-btns{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 4px;}
-  .scenario-btns button{background:#eef2f8; border:1px solid #c6d2e2; border-radius:20px;
-    padding:6px 14px; cursor:pointer; font-size:.8rem; color:var(--navy); font-weight:600;}
-  .scenario-btns button:hover{background:var(--gold-l); border-color:var(--gold);}
-  .slider-row{display:flex; align-items:center; gap:14px; margin-top:12px;
-    background:#f8fafd; border:1px solid #e3e8ef; border-radius:8px; padding:12px 16px;}
-  .slider-row b{color:var(--navy); min-width:150px; font-size:.85rem;}
-  .slider-row output{font-weight:700; color:var(--navy); min-width:52px; text-align:right;}
+/* ===== SEDE ===== */
+.sede{background:var(--grad-dark);position:relative}
+.sede-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+  padding:3rem;border-radius:20px;
+  background:linear-gradient(135deg,rgba(26,95,74,.15),rgba(26,95,74,.05));
+  border:1px solid rgba(79,217,154,.2);
+}
+.sede-info h3{font-size:2rem;color:var(--white);margin-bottom:1rem}
+.sede-info p{color:var(--gray-300);margin-bottom:1.5rem}
+.sede-details{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+.sede-details li{
+  display:flex;align-items:center;gap:.8rem;
+  color:var(--gray-300);font-size:.95rem;
+}
+.sede-details i{color:var(--green-accent);width:20px}
+.sede-map{
+  height:350px;border-radius:12px;overflow:hidden;
+  border:1px solid rgba(79,217,154,.2);
+  background:linear-gradient(135deg,var(--green-800),var(--gray-800));
+  display:grid;place-items:center;color:var(--gray-400);
+  position:relative;
+}
+.sede-map::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(79,217,154,.1) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(79,217,154,.1) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.sede-map-pin{position:relative;z-index:2;text-align:center}
+.sede-map-pin i{font-size:3rem;color:var(--green-accent);filter:drop-shadow(0 0 20px rgba(79,217,154,.5))}
+.sede-map-pin p{color:var(--white);margin-top:.5rem;font-weight:600}
 
-  .chart-wrap{display:flex; gap:30px; flex-wrap:wrap; align-items:center;}
-  .legend{font-size:.8rem;}
-  .legend div{display:flex; align-items:center; gap:8px; margin-bottom:6px;}
-  .legend i{width:12px; height:12px; border-radius:3px; display:inline-block;}
-  .bars{flex:1; min-width:300px;}
-  .bar-row{margin-bottom:12px;}
-  .bar-row .bar-lbl{font-size:.8rem; color:var(--muted); display:flex; justify-content:space-between;}
-  .bar-track{background:#e9edf3; border-radius:5px; height:22px; margin-top:3px;}
-  .bar-fill{height:100%; border-radius:5px; background:var(--navy2); transition:width .4s;
-    display:flex; align-items:center; justify-content:flex-end; padding-right:6px;
-    color:#fff; font-size:.72rem; font-weight:600; min-width:2px;}
-  .bar-fill.gold{background:var(--gold);} .bar-fill.ok{background:var(--ok);} .bar-fill.bad{background:var(--bad);}
+/* ===== CTA FINAL ===== */
+.cta-final{
+  background:linear-gradient(135deg,var(--green-800) 0%,var(--green-900) 100%);
+  text-align:center;padding:6rem 3rem;position:relative;overflow:hidden;
+}
+.cta-final::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at center,rgba(79,217,154,.15),transparent 70%);
+}
+.cta-final-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.cta-final h2{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1rem}
+.cta-final p{color:var(--gray-300);margin-bottom:2.5rem;font-size:1.1rem}
+.cta-buttons{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
+.cta-buttons .btn{padding:1.1rem 2.2rem;font-size:1rem}
 
-  footer{max-width:1280px; margin:0 auto 40px; padding:0 20px; font-size:.78rem; color:var(--muted);}
-  footer ul{margin:8px 0 0 18px;}
+/* ===== FOOTER ===== */
+footer{
+  background:var(--gray-950);padding:3rem 3rem 2rem;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.footer-content{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;
+}
+.footer-brand{display:flex;align-items:center;gap:.8rem}
+.footer-brand strong{color:var(--white);font-family:'Space Grotesk',sans-serif}
+.footer-brand span{color:var(--gray-500);font-size:.8rem}
+.footer-copy{color:var(--gray-500);font-size:.85rem;text-align:center;width:100%;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)}
 
-  @media print{
-    header .head-actions{display:none;}
-    body{background:#fff;}
-    section{box-shadow:none; border:1px solid #ddd;}
-  }
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .burger{display:block}
+  section{padding:4rem 1.5rem}
+  .hero{padding:5rem 1.5rem 3rem}
+  .hero-meta{flex-direction:column;gap:.8rem;align-items:stretch}
+  .schedule-item{grid-template-columns:1fr;gap:.5rem}
+  .sede-card{grid-template-columns:1fr;padding:2rem}
+  .cta-buttons{flex-direction:column;width:100%;max-width:320px;margin:0 auto}
+  .cta-buttons .btn{width:100%;justify-content:center}
+  .nav-logo-text{display:none}
+}
+@media(max-width:500px){
+  .hero-logo{padding:1rem 1.5rem}
+  .hero-logo-main{font-size:3rem}
+  .hero-ctas{flex-direction:column;width:100%}
+  .btn{width:100%;justify-content:center}
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<header>
-  <div id="logoBox">
-    <img id="logoImg" alt="Logo">
-    <svg id="logoFallback" width="100" height="72" viewBox="0 0 100 72">
-      <polygon points="50,4 90,26 90,50 50,68 10,50 10,26" fill="none" stroke="#0b2545" stroke-width="3"/>
-      <text x="50" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="#0b2545">CIDEA</text>
-      <text x="50" y="48" text-anchor="middle" font-size="5.5" fill="#c9a227">CÁMARA INMOBILIARIA</text>
-      <text x="50" y="55" text-anchor="middle" font-size="5.5" fill="#c9a227">DE ANZOÁTEGUI</text>
-    </svg>
-  </div>
-  <div class="head-titles">
-    <h1>CIMA <span>2026</span> — Estructura Financiera</h1>
-    <p>Cumbre de Reactivación Económica e Innovación Anzoátegui 2026 · El Futuro del Territorio</p>
-    <p>Hotel Maremares, Gran Salón · Sábado 24 y Domingo 25 de octubre de 2026</p>
-  </div>
-  <div class="head-actions">
-    <label class="btn">Subir logo<input type="file" id="logoUpload" accept="image/*" hidden></label>
-    <button class="btn ghost" onclick="window.print()">Imprimir / PDF</button>
-  </div>
-</header>
-
-<main>
-  <!-- KPIs -->
-  <div class="kpis">
-    <div class="kpi"><div class="lbl">Total costos</div><div class="val" id="kpiCostos">—</div><div class="sub">incluye deuda +Stage</div></div>
-    <div class="kpi gold"><div class="lbl">Ingresos totales</div><div class="val" id="kpiIngresos">—</div><div class="sub">entradas + patrocinio</div></div>
-    <div class="kpi"><div class="lbl">Resultado</div><div class="val" id="kpiResultado">—</div><div class="sub" id="kpiResSub">superávit / déficit</div></div>
-    <div class="kpi gold"><div class="lbl">Brecha break-even (patrocinio)</div><div class="val" id="kpiBrecha">—</div><div class="sub" id="kpiBrechaSub">—</div></div>
-  </div>
-
-  <!-- SUPUESTOS -->
-  <section>
-    <h2>Supuestos y variables</h2>
-    <p class="note">Celdas editables (amarillo/azul): cambia cualquier valor y todo el modelo se recalcula al instante.</p>
-    <div class="sup-grid" id="supGrid"></div>
-  </section>
-
-  <div class="grid2">
-    <!-- COSTOS -->
-    <section>
-      <h2>Estructura de costos</h2>
-      <p class="note">Calculada en vivo a partir de los supuestos.</p>
-      <table><thead><tr><th>Concepto</th><th class="num">Costo (USD)</th></tr></thead>
-      <tbody id="costBody"></tbody></table>
-    </section>
-
-    <!-- PATROCINIO -->
-    <section>
-      <h2>Plan de patrocinio — Stands 2×2 m</h2>
-      <p class="note">Ajusta el % vendido por nivel para simular escenarios de venta.</p>
-      <table><thead><tr>
-        <th>Nivel</th><th class="num">Precio</th><th class="num">Disp.</th>
-        <th class="num">% vend.</th><th class="num">Vend.</th><th class="num">Subtotal</th>
-      </tr></thead>
-      <tbody id="sponsBody"></tbody></table>
-      <div class="slider-row">
-        <b>% vendido global</b>
-        <input type="range" id="globalPct" min="0" max="100" step="5" value="100">
-        <output id="globalPctOut">100%</output>
-      </div>
-      <div class="scenario-btns">
-        <button onclick="setScenario(100)">Pleno · 100%</button>
-        <button onclick="setScenario(75)">Alto · 75%</button>
-        <button onclick="setScenario(50)">Conservador · 50%</button>
-        <button onclick="setScenario(25)">Bajo · 25%</button>
-      </div>
-      <p class="note" style="margin-top:10px" id="benefNote">Beneficios Nivel III: logo en pantalla (rotativo), mención en evento y mención en Instagram.</p>
-    </section>
-  </div>
-
-  <!-- RESUMEN -->
-  <section>
-    <h2>Resumen financiero y break-even</h2>
-    <div class="grid2">
-      <div>
-        <table><tbody id="summaryBody"></tbody></table>
-      </div>
-      <div>
-        <p class="note">Escenarios de venta de stands (% proporcional en todos los niveles. El almuerzo lo cubre cada asistente).</p>
-        <table><thead><tr>
-          <th>Escenario</th><th class="num">% stands</th><th class="num">Patrocinio</th><th class="num">Resultado</th>
-        </tr></thead><tbody id="scenarioBody"></tbody></table>
-      </div>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">C</div>
+    <div class="nav-logo-text">
+      <strong>CIMA 2026</strong>
+      <span>Anzoátegui</span>
     </div>
-  </section>
-
-  <!-- GRÁFICOS -->
-  <section>
-    <h2>Visualización</h2>
-    <div class="chart-wrap">
-      <div>
-        <svg id="donut" width="220" height="220" viewBox="0 0 220 220"></svg>
-      </div>
-      <div class="legend" id="donutLegend"></div>
-      <div class="bars" id="bars"></div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <b>Notas del modelo:</b>
-  <ul>
-    <li>El almuerzo lo cubre cada asistente por su cuenta (restaurante del hotel disponible).</li>
-    <li>Los stands (2×2 m) no tienen costo de montaje para la Cámara; cada patrocinante organiza el suyo.</li>
-    <li>La deuda pendiente con +Stage (USD 2.500) debe honrarse con este evento.</li>
-    <li>Los valores marcados como "estimado" en los supuestos pueden refinarse con cotizaciones reales.</li>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#ejes">Ejes</a></li>
+    <li><a href="#programa">Programa</a></li>
+    <li><a href="#expositores">Expositores</a></li>
+    <li><a href="#sede">Sede</a></li>
   </ul>
+  <a href="#registro" class="nav-cta"><i class="fas fa-ticket"></i> Registrarme</a>
+  <button class="burger"><i class="fas fa-bars"></i></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-circle"></i> 24 & 25 de octubre 2026 · Anzoátegui</div>
+    <div class="hero-logo">
+      <div class="hero-logo-main">CIMA 2026</div>
+      <div class="hero-logo-sub">El Futuro del Territorio</div>
+    </div>
+    <h1>Cumbre de <em>Reactivación Económica</em> e Innovación Anzoátegui</h1>
+    <p class="hero-sub">Dos jornadas, cuatro ejes estratégicos, y la convergencia entre el sector inmobiliario, la inteligencia artificial, la tokenización y la sostenibilidad. El evento que definirá la próxima década productiva del estado.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <i class="fas fa-calendar-check"></i>
+        <div><strong>24 — 25 OCT</strong><span>2 días</span></div>
+      </div>
+      <div class="hero-meta-item">
+        <i class="fas fa-location-dot"></i>
+        <div><strong>Hotel Maremares</strong><span>Gran Salón</span></div>
+      </div>
+      <div class="hero-meta-item">
+        <i class="fas fa-users"></i>
+        <div><strong>17 Expositores</strong><span>Nacionales</span></div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="https://forms.gle/bj2gTruXTDgXhCGX9" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class="fas fa-user-plus"></i> Registro Interno
+      </a>
+      <a href="https://forms.gle/HWke15i9QJcJFdqD6" target="_blank" rel="noopener" class="btn btn-secondary">
+        <i class="fas fa-hotel"></i> Reservar Hospedaje
+      </a>
+    </div>
+  </div>
+  <div class="scroll-ind">SCROLL <i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- EJES -->
+<section class="ejes fade-up" id="ejes">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Estratégico</span>
+      <h2>Cuatro <em>Ejes Temáticos</em></h2>
+      <p>La arquitectura conceptual de CIMA 2026 se vertebra sobre los pilares que definen la próxima ola de transformación económica y territorial.</p>
+    </div>
+    <div class="ejes-grid">
+      <div class="eje-card">
+        <div class="eje-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="eje-num">01</div>
+        <h3>Reactivación Económica</h3>
+        <p>Diagnóstico del mercado inmobiliario, financiamiento real y perspectivas de inversión para los sectores productivos del estado.</p>
+      </div>
+      <div class="eje-card">
+        <div class="eje-icon"><i class="fas fa-brain"></i></div>
+        <div class="eje-num">02</div>
+        <h3>Inteligencia Artificial</h3>
+        <p>IA agentica, One-Person Company, y herramientas concretas de productividad aplicadas a industria, finanzas, salud y servicios.</p>
+      </div>
+      <div class="eje-card">
+        <div class="eje-icon"><i class="fas fa-link"></i></div>
+        <div class="eje-num">03</div>
+        <h3>Tokenización Operativa</h3>
+        <p>Marco legal venezolano, operación paso a paso de activos digitales, y transición hacia bonos de carbono tokenizados.</p>
+      </div>
+      <div class="eje-card">
+        <div class="eje-icon"><i class="fas fa-leaf"></i></div>
+        <div class="eje-num">04</div>
+        <h3>Sostenibilidad ESG</h3>
+        <p>Tratamiento modular de agua, gestión ambiental integral y casos aplicables a desarrollos inmobiliarios sostenibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section class="programa fade-up" id="programa">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Agenda Oficial</span>
+      <h2>Programa <em>Completo</em></h2>
+      <p>Dos días de conferencias magistrales, paneles estratégicos y sesiones operativas diseñadas para transformar decisiones en acción.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="d1"><i class="fas fa-sun"></i> Día 1 · Sábado 24</button>
+      <button class="tab-btn" data-tab="d2"><i class="fas fa-moon"></i> Día 2 · Domingo 25</button>
+    </div>
+
+    <!-- DÍA 1 -->
+    <div class="tab-pane active" id="d1">
+      <div class="dia-header">
+        <h3>Sábado 24 de Octubre</h3>
+        <p>Contexto, Reactivación e Inteligencia Artificial · 08:30 – 20:00</p>
+      </div>
+
+      <div class="bloque">
+        <div class="bloque-head">
+          <div class="bloque-num">I</div>
+          <div class="bloque-info">
+            <h4>Contexto y Reactivación</h4>
+            <span>08:30 – 12:30 · Mercado, financiamiento y capital institucional</span>
+          </div>
+        </div>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-time">08:30 — 09:30</div>
+            <div class="schedule-content">
+              <h5>Apertura Institucional</h5>
+              <p>Estado del mercado inmobiliario en Anzoátegui 2025-2026: transacciones, precios, inventario</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Cora Farias</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">09:30 — 10:30</div>
+            <div class="schedule-content">
+              <h5>Reactivación desde la construcción</h5>
+              <p>Proyectos en ejecución y barreras reales del sector</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Rafael Ávila</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:30 — 11:30</div>
+            <div class="schedule-content">
+              <h5>Financiamiento en Venezuela</h5>
+              <p>Instrumentos reales y barreras actuales. Enfoque al sector inmobiliario</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Fabián Campos</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:30 — 12:30</div>
+            <div class="schedule-content">
+              <h5>El inversor extranjero y el mercado venezolano</h5>
+              <p>Percepción, riesgos y oportunidades</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Emerson Ramírez</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">12:30 — 13:30</div>
+            <div class="schedule-content">
+              <h5>Keynote · Due Diligence y Factibilidad</h5>
+              <p>Cómo el capital institucional evalúa, estructura y cierra deals en mercados emergentes</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-star"></i> JM Padrón</div>
+          </div>
+          <div class="schedule-item break">
+            <i class="fas fa-utensils"></i> Almuerzo libre · 13:30 – 15:00
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <div class="bloque-head">
+          <div class="bloque-num">II</div>
+          <div class="bloque-info">
+            <h4>Inteligencia Artificial</h4>
+            <span>15:00 – 19:00 · Productividad, IA agéntica y tendencias</span>
+          </div>
+        </div>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-time">15:00 — 16:00</div>
+            <div class="schedule-content">
+              <h5>One-Person Company</h5>
+              <p>Cómo operar como empresa usando IA de manera individual</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Orlando Suárez</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">16:00 — 17:00</div>
+            <div class="schedule-content">
+              <h5>Agentes autónomos para una economía interconectada</h5>
+              <p>Cuando la IA deja de responder y empieza a operar</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> César López</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">17:00 — 18:00</div>
+            <div class="schedule-content">
+              <h5>El Agente con IA · Método INERCIA</h5>
+              <p>Branding, tráfico, automatización y escalabilidad en el sector inmobiliario</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Nelson Perdomo</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">18:00 — 19:00</div>
+            <div class="schedule-content">
+              <h5>IA, Sectores Económicos y Tendencias</h5>
+              <p>Visión panorámica del impacto de la IA en los sectores productivos</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Felipe Capozzolo</div>
+          </div>
+          <div class="schedule-item break">
+            <i class="fas fa-champagne-glasses"></i> Cierre Día 1 · 19:00 – 20:00 · Networking informal
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DÍA 2 -->
+    <div class="tab-pane" id="d2">
+      <div class="dia-header">
+        <h3>Domingo 25 de Octubre</h3>
+        <p>Tokenización operativa, ESG y Saneamiento Ambiental · 08:30 – 20:15</p>
+      </div>
+
+      <div class="bloque">
+        <div class="bloque-head">
+          <div class="bloque-num">III</div>
+          <div class="bloque-info">
+            <h4>Tokenización · Refuerzo Conceptual</h4>
+            <span>08:30 – 12:00 · Marco legal, operación y bonos de carbono</span>
+          </div>
+        </div>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-time">08:30 — 09:00</div>
+            <div class="schedule-content">
+              <h5>Apertura Día 2</h5>
+              <p>Bienvenida, resumen del día 1 y expectativas</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-flag"></i> Presidencia Cámara</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">09:00 — 10:00</div>
+            <div class="schedule-content">
+              <h5>Tokenización Operativa</h5>
+              <p>Del concepto a la operación. ¿Qué cambió en un año?</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Juan Carlos Hernández</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">10:00 — 11:00</div>
+            <div class="schedule-content">
+              <h5>Marco legal venezolano para activos digitales</h5>
+              <p>Vacíos, avances y riesgos regulatorios</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Roberto Hung</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">11:00 — 12:00</div>
+            <div class="schedule-content">
+              <h5>Panel · Bonos de carbono tokenizados</h5>
+              <p>De la teoría a la práctica. Transición hacia la sostenibilidad inmobiliaria</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-users"></i> Suárez · Hernández · Hung</div>
+          </div>
+          <div class="schedule-item break">
+            <i class="fas fa-utensils"></i> Almuerzo libre · 12:00 – 14:00
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <div class="bloque-head">
+          <div class="bloque-num">IV</div>
+          <div class="bloque-info">
+            <h4>ESG y Saneamiento Ambiental</h4>
+            <span>14:00 – 17:30 · Sostenibilidad, agua circular y gestión ambiental</span>
+          </div>
+        </div>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-time">14:00 — 14:45</div>
+            <div class="schedule-content">
+              <h5>Plantas de tratamiento modulares</h5>
+              <p>Agua circular en edificaciones. De lo residual a lo reusable</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-building"></i> VITOMARCA</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">14:45 — 15:30</div>
+            <div class="schedule-content">
+              <h5>ESG: de la teoría a la práctica</h5>
+              <p>Aplicación real en el sector inmobiliario venezolano</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Víctor Morales · PwC</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">15:30 — 16:15</div>
+            <div class="schedule-content">
+              <h5>Gestión ambiental integral</h5>
+              <p>Para desarrollos inmobiliarios de alto impacto</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-building"></i> Evergreen Service C.A.</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">16:15 — 17:00</div>
+            <div class="schedule-content">
+              <h5>Cultura ambiental empresarial y comunidad</h5>
+              <p>Integración entre organizaciones y su entorno</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-user"></i> Alex Medina</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">17:00 — 17:30</div>
+            <div class="schedule-content">
+              <h5>Propuesta Estratégica · Alianza</h5>
+              <p>Saneamiento de la Bahía de Pozuelos</p>
+            </div>
+            <div class="schedule-speaker"><i class="fas fa-handshake"></i> Green & Blue · J.C. Hernández</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <div class="bloque-head">
+          <div class="bloque-num">C</div>
+          <div class="bloque-info">
+            <h4>Cierre y Brindis</h4>
+            <span>17:30 – 20:15 · Activaciones institucionales y cierre social</span>
+          </div>
+        </div>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-time">17:30 — 18:00</div>
+            <div class="schedule-content"><h5>Condecoración y Nombramiento</h5><p>Reconocimientos CIDEA</p></div>
+            <div class="schedule-speaker"><i class="fas fa-award"></i> CIDEA</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">18:00 — 18:30</div>
+            <div class="schedule-content"><h5>Lanzamiento · Comisión de Mediación y Arbitraje</h5><p>Nueva instancia institucional de CIDEA</p></div>
+            <div class="schedule-speaker"><i class="fas fa-gavel"></i> Gustavo Albornoz</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-time">18:30 — 19:00</div>
+            <div class="schedule-content"><h5>Palabras de Cierre</h5><p>Compromisos, próximos pasos, convocatoria a acción</p></div>
+            <div class="schedule-speaker"><i class="fas fa-flag"></i> Presidencia CIDEA</div>
+          </div>
+          <div class="schedule-item break">
+            <i class="fas fa-music"></i> Brindis de Cierre · 19:00 – 20:15 · Música en vivo
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPOSITORES -->
+<section class="expositores fade-up" id="expositores">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Speakers</span>
+      <h2>Expositores <em>Confirmados</em></h2>
+      <p>Líderes de opinión, ejecutivos y especialistas que articulan el tejido productivo del estado.</p>
+    </div>
+    <div class="speakers-grid">
+      <div class="speaker"><div class="speaker-avatar">CF</div><h5>Cora Farias</h5><div class="speaker-role">Apertura Institucional</div><div class="speaker-topic">Estado del mercado inmobiliario Anzoátegui</div></div>
+      <div class="speaker"><div class="speaker-avatar">RA</div><h5>Rafael Ávila</h5><div class="speaker-role">Construcción</div><div class="speaker-topic">Reactivación económica</div></div>
+      <div class="speaker"><div class="speaker-avatar">FC</div><h5>Fabián Campos</h5><div class="speaker-role">Finanzas</div><div class="speaker-topic">Financiamiento inmobiliario</div></div>
+      <div class="speaker"><div class="speaker-avatar">ER</div><h5>Emerson Ramírez</h5><div class="speaker-role">Inversión</div><div class="speaker-topic">Inversor extranjero</div></div>
+      <div class="speaker"><div class="speaker-avatar">JP</div><h5>JM Padrón</h5><div class="speaker-role">Keynote</div><div class="speaker-topic">Due Diligence y Factibilidad</div></div>
+      <div class="speaker"><div class="speaker-avatar">OS</div><h5>Orlando Suárez</h5><div class="speaker-role">IA & Tokenización</div><div class="speaker-topic">OPC · Bonos de Carbono</div></div>
+      <div class="speaker"><div class="speaker-avatar">CL</div><h5>César López</h5><div class="speaker-role">IA Agéntica</div><div class="speaker-topic">Agentes autónomos</div></div>
+      <div class="speaker"><div class="speaker-avatar">NP</div><h5>Nelson Perdomo</h5><div class="speaker-role">Método INERCIA</div><div class="speaker-topic">El Agente con IA</div></div>
+      <div class="speaker"><div class="speaker-avatar">FC</div><h5>Felipe Capozzolo</h5><div class="speaker-role">Tendencias</div><div class="speaker-topic">IA & Sectores Económicos</div></div>
+      <div class="speaker"><div class="speaker-avatar">JH</div><h5>Juan Carlos Hernández</h5><div class="speaker-role">Tokenización</div><div class="speaker-topic">Tokenización operativa · Bahía Pozuelos</div></div>
+      <div class="speaker"><div class="speaker-avatar">RH</div><h5>Roberto Hung</h5><div class="speaker-role">Legal</div><div class="speaker-topic">Marco legal activos digitales</div></div>
+      <div class="speaker"><div class="speaker-avatar">VT</div><h5>VITOMARCA</h5><div class="speaker-role">Ingeniería</div><div class="speaker-topic">Plantas de tratamiento modulares</div></div>
+      <div class="speaker"><div class="speaker-avatar">VM</div><h5>Víctor Morales</h5><div class="speaker-role">PwC · ESG</div><div class="speaker-topic">ESG en sector inmobiliario</div></div>
+      <div class="speaker"><div class="speaker-avatar">EV</div><h5>Evergreen Service</h5><div class="speaker-role">Gestión ambiental</div><div class="speaker-topic">Desarrollos inmobiliarios</div></div>
+      <div class="speaker"><div class="speaker-avatar">AM</div><h5>Alex Medina</h5><div class="speaker-role">Cultura empresarial</div><div class="speaker-topic">Ambiental y comunidad</div></div>
+      <div class="speaker"><div class="speaker-avatar">GA</div><h5>Gustavo Albornoz</h5><div class="speaker-role">CIDEA</div><div class="speaker-topic">Comisión Mediación y Arbitraje</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEDE -->
+<section class="sede fade-up" id="sede">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Venue</span>
+      <h2>Sede del <em>Evento</em></h2>
+    </div>
+    <div class="sede-card">
+      <div class="sede-info">
+        <h3>Hotel Maremares</h3>
+        <p>El Gran Salón del Hotel Maremares recibe a CIMA 2026 como punto de convergencia del sector productivo, académico e institucional del estado Anzoátegui.</p>
+        <ul class="sede-details">
+          <li><i class="fas fa-location-dot"></i> Estado Anzoátegui, Venezuela</li>
+          <li><i class="fas fa-door-open"></i> Gran Salón · Espacio principal del hotel</li>
+          <li><i class="fas fa-calendar"></i> Sábado 24 y Domingo 25 de octubre de 2026</li>
+          <li><i class="fas fa-utensils"></i> Restaurante disponible en el hotel</li>
+          <li><i class="fas fa-wifi"></i> Espacios habilitados para networking</li>
+        </ul>
+      </div>
+      <div class="sede-map">
+        <div class="sede-map-pin">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Hotel Maremares · Anzoátegui</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final fade-up" id="registro">
+  <div class="cta-final-content">
+    <span class="eyebrow">Cupos limitados</span>
+    <h2>Reserva tu lugar en el <em>futuro del territorio</em></h2>
+    <p>Registra tu asistencia interna o asegura tu hospedaje para las dos jornadas de CIMA 2026. El punto de inflexión para el tejido productivo del estado.</p>
+    <div class="cta-buttons">
+      <a href="https://forms.gle/bj2gTruXTDgXhCGX9" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class="fas fa-user-plus"></i> Formulario de Registro Interno
+      </a>
+      <a href="https://forms.gle/HWke15i9QJcJFdqD6" target="_blank" rel="noopener" class="btn btn-secondary">
+        <i class="fas fa-bed"></i> Formulario de Reservas
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="nav-logo-mark">C</div>
+      <div><strong>CIMA 2026</strong><br><span>CIDEA · Cámara Inmobiliaria de Anzoátegui</span></div>
+    </div>
+    <div class="footer-brand">
+      <div><strong style="color:var(--gray-400);font-size:.85rem">El Futuro del Territorio</strong><br><span>24 — 25 Octubre 2026 · Anzoátegui</span></div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 CIMA · Cumbre de Reactivación Económica e Innovación Anzoátegui. Todos los derechos reservados.</div>
 </footer>
 
 <script>
-// ===================== ESTADO =====================
-const S = {
-  asistentes:350, precio:20, coffee:3, nBreaks:4,
-  salonDia:500, dias:2, streaming:600, av:2000, multimedia:600,
-  personal:300, ig:250, representacion:600, violinista:200,
-  brindis:700, honorarios:2000, deuda:2500
-};
-const SUP = [
-  ['asistentes','Asistentes efectivos','Dato del usuario'],
-  ['precio','Precio entrada (USD/persona)','Tope máximo definido'],
-  ['coffee','Costo coffee break (USD/pers.)','Café, galletas, jugos, frutas, sándwiches'],
-  ['nBreaks','Número de coffee breaks','Según agenda: 10:45 y 15:45, ambos días'],
-  ['salonDia','Alquiler Gran Salón (USD/día)','Incluye sillas — Hotel Maremares'],
-  ['dias','Días de alquiler del salón','24 y 25 de octubre'],
-  ['streaming','Streaming (USD)','Dato del usuario'],
-  ['av','Equipo audiovisual (USD)','Pantalla / proyector / sonido / mics — estimado'],
-  ['multimedia','Multimedia (USD)','Camarógrafo + fotógrafo — estimado'],
-  ['personal','Personal registro/protocolo (USD)','~8 personas × USD 35 — estimado'],
-  ['ig','Campaña Instagram (USD)','Solo pauta, no producción — estimado'],
-  ['representacion','Gastos de representación Cámara (USD)','Transporte, combustible, viáticos — estimado'],
-  ['violinista','Violinista brindis (USD)','Estimado'],
-  ['brindis','Brindis: vino e insumos (USD)','~USD 2/persona en vino + servicio — estimado'],
-  ['honorarios','Honorarios expositores (USD)','Estimado entre todos'],
-  ['deuda','Deuda pendiente +Stage (USD)','Debe honrarse con este evento']
-];
-const tiers = [
-  {nivel:'I',  precio:1500, disp:0,  pct:100},
-  {nivel:'II', precio:800,  disp:0,  pct:100},
-  {nivel:'III',precio:400,  disp:22, pct:100},
-  {nivel:'IV', precio:120,  disp:25, pct:100}
-];
-const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+// Navbar scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
 
-// ===================== COSTOS =====================
-function costRows(){
-  return [
-    ['Alquiler Gran Salón (Maremares)', S.salonDia*S.dias],
-    ['Equipo audiovisual (pantalla/proyector/sonido/mics)', S.av],
-    ['Streaming', S.streaming],
-    ['Coffee break ('+S.nBreaks+'×, todos los asistentes)', S.coffee*S.asistentes*S.nBreaks],
-    ['Brindis (vino e insumos)', S.brindis],
-    ['Personal de registro / protocolo', S.personal],
-    ['Multimedia (camarógrafo + fotógrafo)', S.multimedia],
-    ['Campaña Instagram', S.ig],
-    ['Gastos de representación (Cámara)', S.representacion],
-    ['Violinista (brindis)', S.violinista],
-    ['Honorarios expositores', S.honorarios],
-    ['Deuda pendiente con +Stage', S.deuda]
-  ];
-}
-const totalCostos = () => costRows().reduce((a,r)=>a+r[1],0);
-const ingresoEntradas = () => S.asistentes*S.precio;
-const capPatrocinio = () => tiers.reduce((a,t)=>a+t.precio*t.disp,0);
-const ingresoPatrocinio = () => tiers.reduce((a,t)=>a+t.precio*Math.round(t.disp*t.pct/100),0);
-const ingresoPatrocinioExact = pct => tiers.reduce((a,t)=>a+t.precio*t.disp*pct/100,0);
-
-// ===================== RENDER =====================
-function render(){
-  const costos = totalCostos(), entradas = ingresoEntradas(), patro = ingresoPatrocinio();
-  const ingresos = entradas + patro, resultado = ingresos - costos;
-  const brecha = Math.max(0, costos - entradas);
-  const pctNec = capPatrocinio()>0 ? Math.min(100, brecha/capPatrocinio()*100) : 0;
-
-  document.getElementById('kpiCostos').textContent = fmt.format(costos);
-  document.getElementById('kpiIngresos').textContent = fmt.format(ingresos);
-  const kr = document.getElementById('kpiResultado');
-  kr.textContent = fmt.format(resultado);
-  kr.className = 'val ' + (resultado>=0?'ok':'bad');
-  document.getElementById('kpiResSub').textContent = resultado>=0?'superávit':'déficit';
-  document.getElementById('kpiBrecha').textContent = fmt.format(brecha);
-  document.getElementById('kpiBrechaSub').textContent =
-    '= ' + pctNec.toFixed(1) + '% de la capacidad de stands vendida';
-
-  // Costos
-  const cb = document.getElementById('costBody');
-  cb.innerHTML = costRows().map(r=>
-    `<tr><td>${r[0]}</td><td class="num">${fmt.format(r[1])}</td></tr>`).join('')
-    + `<tr class="total"><td>TOTAL COSTOS</td><td class="num">${fmt.format(costos)}</td></tr>`;
-
-  // Patrocinio
-  tiers.forEach((t,i)=>{
-    const sold = Math.round(t.disp*t.pct/100);
-    document.getElementById('sold'+i).textContent = sold;
-    document.getElementById('sub'+i).textContent = fmt.format(sold*t.precio);
+// Tabs
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanes = document.querySelectorAll('.tab-pane');
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabPanes.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
   });
-  const totSold = tiers.reduce((a,t)=>a+Math.round(t.disp*t.pct/100),0);
-  document.getElementById('sponsTotal').textContent = fmt.format(patro);
-  document.getElementById('soldTot').textContent = totSold;
+});
 
-  // Resumen
-  const res = resultado>=0;
-  document.getElementById('summaryBody').innerHTML = `
-    <tr><td>Total costos</td><td class="num">${fmt.format(costos)}</td></tr>
-    <tr><td>Ingresos por entrada (${S.asistentes} × ${fmt.format(S.precio)})</td><td class="num">${fmt.format(entradas)}</td></tr>
-    <tr><td>Ingresos por patrocinio</td><td class="num">${fmt.format(patro)}</td></tr>
-    <tr><td>Ingresos totales</td><td class="num">${fmt.format(ingresos)}</td></tr>
-    <tr class="total"><td>Resultado (${res?'superávit':'déficit'})</td>
-        <td class="num ${res?'pos':'neg'}">${fmt.format(resultado)}</td></tr>
-    <tr class="total"><td>Brecha mínima a cubrir con patrocinio (break-even)</td>
-        <td class="num">${fmt.format(brecha)}</td></tr>`;
-
-  // Escenarios
-  const esc = [['Pleno',100],['Alto',75],['Conservador',50],['Bajo',25]];
-  document.getElementById('scenarioBody').innerHTML = esc.map(([n,p])=>{
-    const ing = ingresoPatrocinioExact(p), r = entradas + ing - costos;
-    return `<tr><td>${n}</td><td class="num">${p}%</td><td class="num">${fmt.format(ing)}</td>
-      <td class="num ${r>=0?'pos':'neg'}">${fmt.format(r)}</td></tr>`;
-  }).join('');
-
-  drawDonut(); drawBars(costos, entradas, patro, ingresos, resultado);
-}
-
-// ===================== GRÁFICOS =====================
-const CATS = [
-  ['#0b2545','Salón + AV + Streaming', ()=>S.salonDia*S.dias+S.av+S.streaming],
-  ['#c9a227','Coffee break + Brindis', ()=>S.coffee*S.asistentes*S.nBreaks+S.brindis],
-  ['#3d6ea5','Producción y logística', ()=>S.personal+S.multimedia+S.violinista],
-  ['#7fa8d9','Marketing (Instagram)', ()=>S.ig],
-  ['#8c6d1f','Representación Cámara', ()=>S.representacion],
-  ['#5b8c5a','Honorarios expositores', ()=>S.honorarios],
-  ['#a63d40','Deuda +Stage', ()=>S.deuda]
-];
-function drawDonut(){
-  const total = CATS.reduce((a,c)=>a+c[2](),0)||1;
-  const r=80, C=2*Math.PI*r; let acc=0, svg='';
-  CATS.forEach(c=>{
-    const v=c[2](), f=v/total;
-    svg += `<circle cx="110" cy="110" r="${r}" fill="none" stroke="${c[0]}" stroke-width="34"
-      stroke-dasharray="${f*C} ${C}" stroke-dashoffset="${-acc*C}"
-      transform="rotate(-90 110 110)"><title>${c[1]}: ${fmt.format(v)}</title></circle>`;
-    acc+=f;
+// Fade-up on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
   });
-  svg += `<text x="110" y="106" text-anchor="middle" font-size="13" fill="#5b6b7b">Total</text>
-          <text x="110" y="126" text-anchor="middle" font-size="17" font-weight="bold" fill="#0b2545">${fmt.format(total)}</text>`;
-  document.getElementById('donut').innerHTML = svg;
-  document.getElementById('donutLegend').innerHTML = CATS.map(c=>
-    `<div><i style="background:${c[0]}"></i>${c[1]} — <b>${fmt.format(c[2]())}</b></div>`).join('');
-}
-function drawBars(costos, entradas, patro, ingresos, resultado){
-  const max = Math.max(costos, ingresos, 1);
-  const rows = [
-    ['Total costos', costos, '', costos],
-    ['Ingresos entradas', entradas, 'gold', entradas],
-    ['Ingresos patrocinio', patro, 'gold', patro],
-    ['Ingresos totales', ingresos, '', ingresos],
-    ['Resultado', Math.abs(resultado), resultado>=0?'ok':'bad', resultado]
-  ];
-  document.getElementById('bars').innerHTML = rows.map(([l,v,c,val])=>`
-    <div class="bar-row">
-      <div class="bar-lbl"><span>${l}</span><span>${fmt.format(val)}</span></div>
-      <div class="bar-track"><div class="bar-fill ${c}" style="width:${Math.max(1.5,v/max*100)}%"></div></div>
-    </div>`).join('');
-}
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// ===================== INIT UI =====================
-function init(){
-  // Supuestos
-  const g = document.getElementById('supGrid');
-  SUP.forEach(([k,lbl,orig])=>{
-    const d = document.createElement('div'); d.className='sup-item';
-    d.innerHTML = `<label>${lbl}</label>
-      <input type="number" min="0" value="${S[k]}" id="sup_${k}">
-      <div class="origin">${orig}</div>`;
-    g.appendChild(d);
-    d.querySelector('input').addEventListener('input', e=>{
-      S[k] = Math.max(0, parseFloat(e.target.value)||0); render();
-    });
-  });
-
-  // Patrocinio
-  const sb = document.getElementById('sponsBody');
-  tiers.forEach((t,i)=>{
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td><b>Nivel ${t.nivel}</b></td>
-      <td class="num">${fmt.format(t.precio)}</td>
-      <td class="num">${t.disp}</td>
-      <td class="num"><input type="number" min="0" max="100" value="${t.pct}" style="width:66px" id="pct${i}"></td>
-      <td class="num" id="sold${i}">0</td>
-      <td class="num" id="sub${i}">—</td>`;
-    sb.appendChild(tr);
-    tr.querySelector('input').addEventListener('input', e=>{
-      t.pct = Math.min(100, Math.max(0, parseFloat(e.target.value)||0)); render();
-    });
-  });
-  const tf = document.createElement('tr'); tf.className='total';
-  tf.innerHTML = `<td>TOTAL</td><td></td><td class="num">${tiers.reduce((a,t)=>a+t.disp,0)}</td>
-    <td></td><td class="num" id="soldTot"></td><td class="num" id="sponsTotal"></td>`;
-  sb.appendChild(tf);
-
-  document.getElementById('globalPct').addEventListener('input', e=>{
-    const p = parseFloat(e.target.value);
-    tiers.forEach(t=>{ t.pct=p; document.getElementById('pct'+tiers.indexOf(t)).value=p; });
-    document.getElementById('globalPctOut').textContent = p+'%';
-    render();
-  });
-
-  // Logo
-  const saved = localStorage.getItem('cima2026_logo');
-  if(saved) showLogo(saved);
-  document.getElementById('logoUpload').addEventListener('change', e=>{
-    const f = e.target.files[0]; if(!f) return;
-    const rd = new FileReader();
-    rd.onload = ev => { localStorage.setItem('cima2026_logo', ev.target.result); showLogo(ev.target.result); };
-    rd.readAsDataURL(f);
-  });
-
-  render();
-}
-function showLogo(src){
-  const img = document.getElementById('logoImg');
-  img.src = src; img.style.display='block';
-  document.getElementById('logoFallback').style.display='none';
-}
-function setScenario(p){
-  tiers.forEach((t,i)=>{ t.pct=p; document.getElementById('pct'+i).value=p; });
-  document.getElementById('globalPct').value = p;
-  document.getElementById('globalPctOut').textContent = p+'%';
-  render();
-}
-init();
+// Burger (simple toggle)
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+burger?.addEventListener('click', () => {
+  navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  navLinks.style.flexDirection = 'column';
+  navLinks.style.position = 'absolute';
+  navLinks.style.top = '100%';
+  navLinks.style.left = '0';
+  navLinks.style.right = '0';
+  navLinks.style.background = 'rgba(5,31,23,.98)';
+  navLinks.style.padding = '1.5rem';
+});
 </script>
 </body>
 </html>
