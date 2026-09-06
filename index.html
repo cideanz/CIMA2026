@@ -24,7 +24,6 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 
-/* ============ NAV ============ */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(244,247,249,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(24,36,48,.08);transition:.3s}
 nav .bar{display:flex;align-items:center;gap:20px;height:64px}
 nav img{height:38px;width:auto}
@@ -41,7 +40,6 @@ nav .links a.nav-gold:hover{background:rgba(242,163,60,.25);color:#6d4708}
 nav .btn{padding:9px 18px}
 @media(max-width:900px){nav .links a{display:none}}
 
-/* ============ HERO ============ */
 header{background:var(--light);color:var(--ink);padding:130px 0 90px;position:relative;overflow:hidden}
 header::before{content:'';position:absolute;inset:0;background:
   radial-gradient(600px 300px at 12% 8%,rgba(14,131,136,.10),transparent 60%),
@@ -59,7 +57,6 @@ header .logo{width:min(760px,94%);margin:0 auto 34px;animation:drop .9s cubic-be
 .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 header .btn-ghost{color:var(--ink)}
 
-/* ============ COUNTDOWN ============ */
 .cd-strip{background:linear-gradient(120deg,var(--teal),#0a6a6e);color:#fff;padding:34px 0;position:relative}
 .cd-strip::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);pointer-events:none}
 .cd{display:flex;align-items:center;justify-content:center;gap:clamp(14px,4vw,44px);flex-wrap:wrap}
@@ -68,14 +65,12 @@ header .btn-ghost{color:var(--ink)}
 .cd-box .num{font-family:'Sora';font-weight:800;font-size:clamp(2rem,5.4vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums}
 .cd-box .u{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin-top:6px}
 
-/* ============ FRANJA PATROCINIO ============ */
 .sp-strip{display:block;background:linear-gradient(90deg,#d98a1f,var(--amber) 50%,#d98a1f);color:#201404;padding:14px 0;transition:.25s;position:relative}
 .sp-strip:hover{filter:brightness(1.07)}
 .sp-strip-in{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font-weight:700;font-size:.95rem}
 .sp-strip-in b{font-family:'Sora';white-space:nowrap;letter-spacing:.02em}
 @media(max-width:640px){.sp-strip-in{justify-content:center;text-align:center}}
 
-/* ============ SECCIONES ============ */
 section{padding:90px 0}
 .sec-dark{background:var(--dark);background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1px);background-size:30px 30px}
 .sec-dark2{background:var(--dark-2)}
@@ -84,14 +79,12 @@ h2.title{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02e
 h2.title em{font-style:normal;color:var(--teal-2)}
 .sub{color:#9fb0bd;max-width:720px;font-size:1.02rem;line-height:1.65;margin-bottom:48px}
 
-/* stats */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:56px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 18px;text-align:center;transition:.25s}
 .stat:hover{transform:translateY(-4px);border-color:rgba(18,165,160,.5)}
 .stat .n{font-family:'Sora';font-weight:800;font-size:2.4rem;color:var(--teal-2)}
 .stat .t{font-size:.82rem;color:#9fb0bd;margin-top:6px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 
-/* ejes */
 .ejes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 .eje{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:.3s}
 .eje::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--c)}
@@ -102,7 +95,6 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .eje p{font-size:.9rem;color:#9fb0bd;line-height:1.6}
 .eje .tag{position:absolute;top:22px;right:22px;font-family:'Sora';font-weight:800;font-size:1.3rem;color:var(--c);opacity:.4}
 
-/* ============ GANTT ============ */
 .scroll-x{overflow-x:auto;padding-bottom:8px}
 .gantt{min-width:860px}
 .g-row,.g-axisrow{display:grid;grid-template-columns:130px 1fr;gap:14px;margin-bottom:12px;align-items:stretch}
@@ -129,7 +121,6 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .g-legend span{display:inline-flex;align-items:center;gap:7px}
 .g-legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
 
-/* charts row */
 .charts{display:grid;grid-template-columns:1fr 1.2fr;gap:22px;margin-top:44px}
 @media(max-width:860px){.charts{grid-template-columns:1fr}}
 .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px}
@@ -147,7 +138,6 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--c);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
 .in .bar i{width:var(--p)}
 
-/* ============ TIMELINES ============ */
 .day-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:44px}
 .day-num{font-family:'Sora';font-weight:800;font-size:clamp(2.6rem,6vw,4rem);line-height:1;color:transparent;-webkit-text-stroke:2px var(--c)}
 .day-head h3{font-size:clamp(1.2rem,3vw,1.7rem)}
@@ -168,7 +158,6 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .b1{--c:var(--teal-2)} .b2{--c:var(--blue)} .b3{--c:var(--violet)} .b4{--c:var(--green)}
 .inst{--c:#8fa0b0} .food{--c:var(--amber)} .social{--c:var(--amber)}
 
-/* ============ EXPOSITORES ============ */
 .spk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .spk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;gap:16px;align-items:flex-start;transition:.25s}
 .spk:hover{transform:translateY(-5px);border-color:var(--c)}
@@ -179,7 +168,6 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .chip.st-ok{background:rgba(34,160,107,.15);color:#4ad395;margin-left:6px}
 .chip.st-wip{background:rgba(242,163,60,.15);color:var(--amber);margin-left:6px}
 
-/* ============ SEDE ============ */
 .sede-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
 @media(max-width:860px){.sede-grid{grid-template-columns:1fr}}
 .sede-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px}
@@ -188,7 +176,6 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .sede-row{display:flex;gap:14px;align-items:center;padding:14px 0;border-top:1px solid var(--line);font-size:.92rem}
 .sede-row b{color:var(--teal-2);font-family:'Sora';min-width:64px}
 
-/* ============ PATROCINIO ============ */
 #patrocinio{background:linear-gradient(165deg,#221708,#0b141d 60%);background-image:radial-gradient(rgba(242,163,60,.06) 1px,transparent 1px),linear-gradient(165deg,#221708,#0b141d 60%);background-size:30px 30px,auto}
 .kicker-gold{color:var(--amber);background:rgba(242,163,60,.12);border-color:rgba(242,163,60,.4)}
 .title .gold{color:var(--amber)}
@@ -219,7 +206,6 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .btn-gold{background:linear-gradient(135deg,var(--amber),#d98a1f);color:#201404;box-shadow:0 10px 30px rgba(242,163,60,.4);font-size:1rem;padding:16px 30px}
 .btn-gold:hover{filter:brightness(1.1);transform:translateY(-2px)}
 
-/* ============ REGISTRO ============ */
 #registro{background:linear-gradient(160deg,#0c2a2c,#0b141d 60%)}
 .reg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 .reg{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:22px;padding:34px;display:flex;flex-direction:column;gap:14px;transition:.3s;position:relative;overflow:hidden}
@@ -233,19 +219,16 @@ h2.title em{font-style:normal;color:var(--teal-2)}
 .reg a.btn{background:var(--c);color:#fff;justify-content:center}
 .reg a.btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
 
-/* footer */
 footer{background:#08101a;padding:44px 0;border-top:1px solid var(--line)}
 footer .f{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;font-size:.85rem;color:#7d8f9c}
 footer a{color:var(--teal-2);font-weight:600}
 footer a:hover{text-decoration:underline}
 footer a.f-gold{color:var(--amber)}
 
-/* floating CTA */
 .fab{position:fixed;right:22px;bottom:22px;z-index:90;background:linear-gradient(135deg,var(--teal),var(--teal-2));color:#fff;font-weight:800;font-family:'Sora';padding:15px 24px;border-radius:999px;box-shadow:0 14px 40px rgba(14,131,136,.5);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .fab:hover{animation:none;transform:translateY(-3px)}
 
-/* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
 </style>
@@ -270,14 +253,13 @@ footer a.f-gold{color:var(--amber)}
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
 <header id="inicio">
   <div class="wrap">
     <img class="logo" src="cima2026-logo.png" alt="CIMA 2026 — Cumbre de Reactivación Económica e Innovación Anzoátegui — El Futuro del Territorio">
     <div class="pills">
       <span class="pill"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg><b>Vie 23 y Sáb 24</b>&nbsp;· Octubre 2026</span>
       <span class="pill"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Hotel Maremares · Gran Salón&nbsp;·&nbsp;<b>Edo. Anzoátegui</b></span>
-      <span class="pill"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>4 ejes&nbsp;·&nbsp;<b>2 jornadas</b>&nbsp;· 22 sesiones</span>
+      <span class="pill"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>4 ejes&nbsp;·&nbsp;<b>2 jornadas</b>&nbsp;· 21 sesiones</span>
     </div>
     <div class="cta-row">
       <a class="btn btn-teal" href="https://forms.gle/bj2gTruXTDgXhCGX9" target="_blank" rel="noopener">🎟️ Reserva tu cupo</a>
@@ -287,7 +269,6 @@ footer a.f-gold{color:var(--amber)}
   </div>
 </header>
 
-<!-- ============ COUNTDOWN ============ -->
 <div class="cd-strip">
   <div class="wrap cd">
     <span class="lab">El futuro del territorio comienza en</span>
@@ -298,7 +279,6 @@ footer a.f-gold{color:var(--amber)}
   </div>
 </div>
 
-<!-- ============ FRANJA PATROCINIO ============ -->
 <a class="sp-strip" href="#patrocinio">
   <div class="wrap sp-strip-in">
     <span>🏆 ¿Quieres que tu marca protagonice CIMA 2026? Stands, vallas, pantallas y tarima principal con unidades limitadas.</span>
@@ -306,7 +286,6 @@ footer a.f-gold{color:var(--amber)}
   </div>
 </a>
 
-<!-- ============ EJES ============ -->
 <section class="sec-dark" id="ejes">
   <div class="wrap">
     <span class="kicker">Visión general</span>
@@ -315,25 +294,24 @@ footer a.f-gold{color:var(--amber)}
     <div class="ejes">
       <div class="eje reveal" style="--c:var(--teal-2)"><span class="tag">01</span><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><h3>Reactivación económica</h3><p>Nueva legislación arrendaticia, construcción, financiamiento real e inversión extranjera. Datos duros para todos los sectores productivos.</p></div>
       <div class="eje reveal" style="--c:var(--blue)"><span class="tag">02</span><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div><h3>Inteligencia Artificial</h3><p>One-Person Company, IA agéntica operando en industria, finanzas, salud y servicios, y el método INERCIA aplicado al negocio inmobiliario.</p></div>
-      <div class="eje reveal" style="--c:var(--violet)"><span class="tag">03</span><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></div><h3>Tokenización operativa</h3><p>Del concepto a la operación: marco legal venezolano de activos digitales y bonos de carbono tokenizados. Refuerzo de la edición anterior.</p></div>
-      <div class="eje reveal" style="--c:var(--green)"><span class="tag">04</span><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22c5-4 8-8 8-13a8 8 0 1 0-16 0c0 5 3 9 8 13z"/><path d="M9 11l2 2 4-4"/></svg></div><h3>Sostenibilidad · ESG</h3><p>Agua circular en edificaciones, cumplimiento ESG, gestión ambiental y la propuesta de saneamiento de la Bahía de Pozuelos.</p></div>
+      <div class="eje reveal" style="--c:var(--violet)"><span class="tag">03</span><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></div><h3>Tokenización operativa</h3><p>Del concepto a la operación: sistemas registrales descentralizados, marco legal venezolano y bonos de carbono tokenizados.</p></div>
+      <div class="eje reveal" style="--c:var(--green)"><span class="tag">04</span><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22c5-4 8-8 8-13a8 8 0 1 0-16 0c0 5 3 9 8 13z"/><path d="M9 11l2 2 4-4"/></svg></div><h3>Sostenibilidad · ESG</h3><p>Agua circular en edificaciones, cumplimiento ESG, cultura ambiental empresarial y la propuesta de saneamiento de la Bahía de Pozuelos.</p></div>
     </div>
     <div class="stats">
       <div class="stat reveal"><div class="n">2</div><div class="t">Jornadas</div></div>
       <div class="stat reveal"><div class="n">4</div><div class="t">Bloques temáticos</div></div>
-      <div class="stat reveal"><div class="n">22</div><div class="t">Sesiones</div></div>
+      <div class="stat reveal"><div class="n">21</div><div class="t">Sesiones</div></div>
       <div class="stat reveal"><div class="n">15</div><div class="t">Expositores</div></div>
       <div class="stat reveal"><div class="n">1</div><div class="t">Gran alianza ambiental</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ CRONOGRAMA GRÁFICO ============ -->
 <section class="sec-dark2" id="cronograma">
   <div class="wrap">
     <span class="kicker">Gráficos · Cronograma</span>
     <h2 class="title">Las dos jornadas, <em>de un vistazo</em></h2>
-    <p class="sub">Distribución horaria de bloques, almuerzos libres y cierres. Día 1: 08:30–19:00 · Día 2: 08:30–20:15.</p>
+    <p class="sub">Distribución horaria de bloques, almuerzos libres y cierres. Día 1: 08:30–19:00 · Día 2: 08:30–19:15.</p>
 
     <div class="scroll-x reveal in">
       <div class="gantt">
@@ -348,19 +326,19 @@ footer a.f-gold{color:var(--amber)}
             <div class="g-seg b1" style="width:32%"><b>Bloque I · Contexto y Reactivación</b><i>08:30 – 12:30</i></div>
             <div class="g-seg food" style="width:12%"><b>Almuerzo</b><i>12:30–14:00</i></div>
             <div class="g-seg b2" style="width:32%"><b>Bloque II · Inteligencia Artificial</b><i>14:00 – 18:00</i></div>
-            <div class="g-seg inst" style="width:8%"><b>Cierre</b><i>18:00</i></div>
+            <div class="g-seg inst" style="width:8%"><b>Cierre</b><i>18:00–19:00</i></div>
             <div class="g-seg empty" style="width:16%"></div>
           </div>
         </div>
         <div class="g-row">
           <div class="g-day"><b>DÍA 2</b><span>Sábado 24/10</span></div>
           <div class="g-track">
-            <div class="g-seg b3" style="width:28%"><b>Bloque III · Tokenización</b><i>08:30 – 12:00</i></div>
+            <div class="g-seg b3" style="width:26%"><b>Bloque III · Tokenización</b><i>08:30 – 12:00</i></div>
             <div class="g-seg food" style="width:16%"><b>Almuerzo</b><i>12:00–14:00</i></div>
-            <div class="g-seg b4" style="width:28%"><b>Bloque IV · ESG</b><i>14:00 – 17:30</i></div>
-            <div class="g-seg inst" style="width:12%"><b>Cierre</b><i>17:30–19:00</i></div>
-            <div class="g-seg food" style="width:10%"><b>Brindis</b><i>19:00–20:15</i></div>
-            <div class="g-seg empty" style="width:6%"></div>
+            <div class="g-seg b4" style="width:26%"><b>Bloque IV · ESG</b><i>14:00 – 17:00</i></div>
+            <div class="g-seg inst" style="width:14%"><b>Cierre institucional</b><i>17:00–18:30</i></div>
+            <div class="g-seg food" style="width:6%"><b>Brindis</b><i>18:30–19:15</i></div>
+            <div class="g-seg empty" style="width:12%"></div>
           </div>
         </div>
       </div>
@@ -388,7 +366,7 @@ footer a.f-gold{color:var(--amber)}
           <div class="bar-row"><div class="bar-top"><span>Bloque I · Contexto y Reactivación</span><b>4</b></div><div class="bar"><i style="--c:var(--teal-2);--p:80%"></i></div></div>
           <div class="bar-row"><div class="bar-top"><span>Bloque II · Inteligencia Artificial</span><b>4</b></div><div class="bar"><i style="--c:var(--blue);--p:80%"></i></div></div>
           <div class="bar-row"><div class="bar-top"><span>Bloque III · Tokenización</span><b>4</b></div><div class="bar"><i style="--c:var(--violet);--p:80%"></i></div></div>
-          <div class="bar-row"><div class="bar-top"><span>Bloque IV · ESG y Saneamiento</span><b>5</b></div><div class="bar"><i style="--c:var(--green);--p:100%"></i></div></div>
+          <div class="bar-row"><div class="bar-top"><span>Bloque IV · ESG y Saneamiento</span><b>4</b></div><div class="bar"><i style="--c:var(--green);--p:80%"></i></div></div>
           <div class="bar-row"><div class="bar-top"><span>Institucional y cierre</span><b>5</b></div><div class="bar"><i style="--c:var(--slate);--p:100%"></i></div></div>
         </div>
       </div>
@@ -396,7 +374,6 @@ footer a.f-gold{color:var(--amber)}
   </div>
 </section>
 
-<!-- ============ DÍA 1 ============ -->
 <section class="sec-dark" id="dia1">
   <div class="wrap">
     <div class="day-head reveal" style="--c:var(--teal-2)">
@@ -421,19 +398,18 @@ footer a.f-gold{color:var(--amber)}
       <div class="t-item b2 reveal"><div class="t-time">16:00–17:00</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Conferencia</span><h4>El agente con IA: método INERCIA aplicado al negocio inmobiliario — Branding, Tráfico, Automatización y Escalabilidad</h4><div class="t-sp">Nelson Perdomo</div></div></div>
       <div class="t-item b2 reveal"><div class="t-time">17:00–18:00</div><div class="t-mid"><span class="t-dot"></span></div>
-        <div class="t-card"><span class="t-format">Conferencia</span><h4>IA, sectores económicos y tendencias</h4><div class="t-sp">Felipe Capozzolo</div></div></div>
+        <div class="t-card"><span class="t-format">Conferencia</span><h4>IA, sectores económicos y tendencias</h4><div class="t-sp">Claudia Curiel</div></div></div>
       <div class="t-item inst reveal"><div class="t-time">18:00–19:00</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Cierre Día 1</span><h4>Palabras de cierre del día: resumen, expectativas para mañana y networking informal</h4><div class="t-sp">Presidencia de la Cámara</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ DÍA 2 ============ -->
 <section class="sec-dark2" id="dia2">
   <div class="wrap">
     <div class="day-head reveal" style="--c:var(--green)">
       <div class="day-num">02</div>
-      <div><h3>Sábado 24 de octubre — Tokenización, ESG y Saneamiento</h3><p>Bloque III y Bloque IV + Brindis · 08:30 – 20:15</p></div>
+      <div><h3>Sábado 24 de octubre — Tokenización, ESG y Saneamiento</h3><p>Bloque III, Bloque IV + Cierre y Brindis · 08:30 – 19:15</p></div>
     </div>
     <div class="timeline">
       <div class="t-item inst reveal"><div class="t-time">08:30–09:00</div><div class="t-mid"><span class="t-dot"></span></div>
@@ -441,34 +417,31 @@ footer a.f-gold{color:var(--amber)}
       <div class="t-item b3 reveal"><div class="t-time">09:00–10:00</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Conferencia</span><h4>Tokenización operativa: del concepto a la operación. ¿Qué cambió en un año?</h4><div class="t-sp">Juan Carlos Hernández</div></div></div>
       <div class="t-item b3 reveal"><div class="t-time">10:00–11:00</div><div class="t-mid"><span class="t-dot"></span></div>
-        <div class="t-card"><span class="t-format">Conferencia</span><h4>El marco legal venezolano para activos digitales: vacíos, avances y riesgos</h4><div class="t-sp">Roberto Hung</div></div></div>
-      <div class="t-item b3 reveal"><div class="t-time">11:00–12:00</div><div class="t-mid"><span class="t-dot"></span></div>
-        <div class="t-card"><span class="t-format">Panel breve</span><h4>Bonos de carbono tokenizados: de la teoría a la práctica. Transición hacia la sostenibilidad inmobiliaria</h4><div class="t-sp">Orlando Suárez + Juan Carlos Hernández + Roberto Hung</div></div></div>
+        <div class="t-card"><span class="t-format">Conversatorio</span><h4>Sistemas Registrales Descentralizados: La Recuperación de la Propiedad como Derecho Fundamental y la Restauración de la Fe Pública en escenarios Post-Conflicto, Post-Catástrofe y Post-Autoritarismo</h4><div class="t-sp">Roberto Hung</div></div></div>
+      <div class="t-item b3 reveal"><div class="t-time">11:00–11:30</div><div class="t-mid"><span class="t-dot"></span></div>
+        <div class="t-card"><span class="t-format">Panel breve</span><h4>Bonos de carbono tokenizados: de la teoría a la práctica. Transición hacia la sostenibilidad inmobiliaria</h4><div class="t-sp">Orlando Suárez · Juan Carlos Hernández · Roberto Hung · Robinson Rivas Suárez</div></div></div>
       <div class="t-item food reveal"><div class="t-time">12:00–14:00</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Almuerzo libre</span><h4>Por cuenta del asistente. Restaurante del hotel disponible.</h4></div></div>
       <div class="t-item b4 reveal"><div class="t-time">14:00–14:45</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Conferencia</span><h4>Plantas de tratamiento modulares: agua circular en edificaciones. De lo residual a lo reusable</h4><div class="t-sp">VITOMARCA</div></div></div>
       <div class="t-item b4 reveal"><div class="t-time">14:45–15:30</div><div class="t-mid"><span class="t-dot"></span></div>
-        <div class="t-card"><span class="t-format">Conferencia</span><h4>ESG: de la teoría a la práctica</h4><div class="t-sp">PwC · Víctor Morales</div></div></div>
+        <div class="t-card"><span class="t-format">Conferencia</span><h4>ESG: de la teoría a la práctica</h4><div class="t-sp">PwC</div></div></div>
       <div class="t-item b4 reveal"><div class="t-time">15:30–16:15</div><div class="t-mid"><span class="t-dot"></span></div>
-        <div class="t-card"><span class="t-format">Conferencia</span><h4>Gestión ambiental integral para desarrollos inmobiliarios</h4><div class="t-sp">Evergreen Service C.A.</div></div></div>
-      <div class="t-item b4 reveal"><div class="t-time">16:15–17:00</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Conferencia</span><h4>Integración de la cultura ambiental empresarial y la comunidad</h4><div class="t-sp">Alex Medina</div></div></div>
-      <div class="t-item b4 reveal"><div class="t-time">17:00–17:30</div><div class="t-mid"><span class="t-dot"></span></div>
-        <div class="t-card"><span class="t-format">Propuesta y alianza estratégica</span><h4>Saneamiento de la Bahía de Pozuelos</h4><div class="t-sp">Green &amp; Blue · Juan Carlos Hernández</div></div></div>
-      <div class="t-item inst reveal"><div class="t-time">17:30–18:00</div><div class="t-mid"><span class="t-dot"></span></div>
+      <div class="t-item b4 reveal"><div class="t-time">16:15–17:00</div><div class="t-mid"><span class="t-dot"></span></div>
+        <div class="t-card"><span class="t-format">Propuesta y alianza estratégica</span><h4>Saneamiento de la Bahía de Pozuelos</h4><div class="t-sp">Green &amp; Blue Think-Tank</div></div></div>
+      <div class="t-item inst reveal"><div class="t-time">17:00–17:30</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Ceremonia</span><h4>Condecoración y nombramiento</h4><div class="t-sp">CIDEA</div></div></div>
-      <div class="t-item inst reveal"><div class="t-time">18:00–18:30</div><div class="t-mid"><span class="t-dot"></span></div>
+      <div class="t-item inst reveal"><div class="t-time">17:30–18:00</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Lanzamiento y activación</span><h4>Comisión de mediación y arbitraje de CIDEA</h4><div class="t-sp">Gustavo Albornoz</div></div></div>
-      <div class="t-item inst reveal"><div class="t-time">18:30–19:00</div><div class="t-mid"><span class="t-dot"></span></div>
+      <div class="t-item inst reveal"><div class="t-time">18:00–18:30</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Palabras de cierre</span><h4>Compromisos, próximos pasos y convocatoria a la acción</h4><div class="t-sp">Presidencia CIDEA</div></div></div>
-      <div class="t-item social reveal"><div class="t-time">19:00–20:15</div><div class="t-mid"><span class="t-dot"></span></div>
+      <div class="t-item social reveal"><div class="t-time">18:30–19:15</div><div class="t-mid"><span class="t-dot"></span></div>
         <div class="t-card"><span class="t-format">Brindis de cierre</span><h4>Cierre social del evento · Música en vivo (violinista)</h4><div class="t-sp">Todos los asistentes</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ EXPOSITORES ============ -->
 <section class="sec-dark" id="expositores">
   <div class="wrap">
     <span class="kicker">Voces del evento</span>
@@ -482,19 +455,19 @@ footer a.f-gold{color:var(--amber)}
       <div class="spk b2 reveal"><div class="ava">OS</div><div><h4>Orlando Suárez</h4><p>One-Person Company · Panel de bonos de carbono</p><span class="chip">Bloque II + III</span><span class="chip st-ok">Confirmado</span></div></div>
       <div class="spk b2 reveal"><div class="ava">CL</div><div><h4>César López</h4><p>Agentes autónomos para una economía interconectada</p><span class="chip">Bloque II</span><span class="chip st-ok">Confirmado</span></div></div>
       <div class="spk b2 reveal"><div class="ava">NP</div><div><h4>Nelson Perdomo</h4><p>El agente con IA: método INERCIA aplicado al negocio inmobiliario</p><span class="chip">Bloque II</span><span class="chip st-ok">Confirmado</span></div></div>
-      <div class="spk b2 reveal"><div class="ava">FC</div><div><h4>Felipe Capozzolo</h4><p>IA, sectores económicos y tendencias</p><span class="chip">Bloque II</span><span class="chip st-wip">En gestión</span></div></div>
-      <div class="spk b3 reveal"><div class="ava">JH</div><div><h4>Juan Carlos Hernández</h4><p>Tokenización operativa · Bahía de Pozuelos</p><span class="chip">Bloque III + IV</span><span class="chip st-ok">Confirmado</span></div></div>
-      <div class="spk b3 reveal"><div class="ava">RH</div><div><h4>Roberto Hung</h4><p>Marco legal venezolano para activos digitales</p><span class="chip">Bloque III</span><span class="chip st-ok">Confirmado</span></div></div>
+      <div class="spk b2 reveal"><div class="ava">CC</div><div><h4>Claudia Curiel</h4><p>IA, sectores económicos y tendencias</p><span class="chip">Bloque II</span><span class="chip st-ok">Confirmada</span></div></div>
+      <div class="spk b3 reveal"><div class="ava">JH</div><div><h4>Juan Carlos Hernández</h4><p>Tokenización operativa · Panel de bonos de carbono · Saneamiento Bahía de Pozuelos</p><span class="chip">Bloque III + IV</span><span class="chip st-ok">Confirmado</span></div></div>
+      <div class="spk b3 reveal"><div class="ava">RH</div><div><h4>Roberto Hung</h4><p>Sistemas Registrales Descentralizados · Panel de bonos de carbono</p><span class="chip">Bloque III</span><span class="chip st-ok">Confirmado</span></div></div>
+      <div class="spk b3 reveal"><div class="ava">RR</div><div><h4>Robinson Rivas Suárez</h4><p>Panel: bonos de carbono tokenizados</p><span class="chip">Bloque III · Panel</span><span class="chip st-ok">Confirmado</span></div></div>
       <div class="spk b4 reveal"><div class="ava">VT</div><div><h4>VITOMARCA</h4><p>Plantas de tratamiento modulares: agua circular</p><span class="chip">Bloque IV</span><span class="chip st-ok">Confirmado</span></div></div>
-      <div class="spk b4 reveal"><div class="ava">VM</div><div><h4>Víctor Morales · PwC</h4><p>ESG: de la teoría a la práctica</p><span class="chip">Bloque IV</span><span class="chip st-ok">Confirmado</span></div></div>
-      <div class="spk b4 reveal"><div class="ava">EV</div><div><h4>Evergreen Service C.A.</h4><p>Gestión ambiental integral para desarrollos inmobiliarios</p><span class="chip">Bloque IV</span><span class="chip st-wip">En gestión</span></div></div>
+      <div class="spk b4 reveal"><div class="ava">PW</div><div><h4>PwC</h4><p>ESG: de la teoría a la práctica</p><span class="chip">Bloque IV</span><span class="chip st-ok">Confirmado</span></div></div>
       <div class="spk b4 reveal"><div class="ava">AM</div><div><h4>Alex Medina</h4><p>Cultura ambiental empresarial y comunidad</p><span class="chip">Bloque IV</span><span class="chip st-ok">Confirmado</span></div></div>
+      <div class="spk b4 reveal"><div class="ava">GB</div><div><h4>Green &amp; Blue Think-Tank</h4><p>Saneamiento de la Bahía de Pozuelos</p><span class="chip">Bloque IV · Alianza</span><span class="chip st-ok">Confirmado</span></div></div>
       <div class="spk inst reveal"><div class="ava">GA</div><div><h4>Gustavo Albornoz</h4><p>Lanzamiento: comisión de mediación y arbitraje de CIDEA</p><span class="chip">Cierre Día 2</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ SEDE ============ -->
 <section class="sec-dark2" id="sede">
   <div class="wrap">
     <span class="kicker">Sede del evento</span>
@@ -506,21 +479,20 @@ footer a.f-gold{color:var(--amber)}
         <p class="dir">Todas las conferencias, paneles, cierres institucionales y el brindis final con violinista en vivo se realizan en el Gran Salón del Hotel Maremares. Almuerzos libres en el restaurante del hotel.</p>
         <div class="sede-row"><b>DÍA 1</b><span>Viernes 23/10 · Bloques I y II · Contexto, Reactivación e Inteligencia Artificial</span></div>
         <div class="sede-row"><b>DÍA 2</b><span>Sábado 24/10 · Bloques III y IV · Tokenización, ESG y Saneamiento Ambiental</span></div>
-        <div class="sede-row"><b>🎻</b><span>Brindis de cierre con música en vivo · Sábado 19:00</span></div>
+        <div class="sede-row"><b>🎻</b><span>Brindis de cierre con música en vivo · Sábado 18:30</span></div>
       </div>
       <div class="sede-card reveal">
         <h3>🗓️ Horarios clave</h3>
         <div class="sede-row"><b>08:30</b><span>Apertura de bloques (ambos días)</span></div>
         <div class="sede-row"><b>12:30</b><span>Almuerzo libre Día 1 · 12:00 Día 2</span></div>
         <div class="sede-row"><b>14:00</b><span>Reinicio de bloques vespertinos</span></div>
-        <div class="sede-row"><b>19:00</b><span>Brindis de cierre · Día 2</span></div>
-        <div class="sede-row"><b>20:15</b><span>Fin del evento</span></div>
+        <div class="sede-row"><b>18:30</b><span>Brindis de cierre · Día 2</span></div>
+        <div class="sede-row"><b>19:15</b><span>Fin del evento</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PATROCINIO ============ -->
 <section id="patrocinio">
   <div class="wrap">
     <span class="kicker kicker-gold">Patrocinio · Marcas aliadas</span>
@@ -579,7 +551,7 @@ footer a.f-gold{color:var(--amber)}
       </div>
     </div>
 
-    <p class="sp-note reveal">Todos los planes incluyen proyección recurrente de tu video de marca (máx. 30 s) en la pantalla LED principal y cobertura en las redes oficiales de CIDEA. La inversión cubre el espacio publicitario; la personalización del stand tiene costo aparte (se contrata con “+STAGE”). Varias posiciones son exclusivas o de unidades contadas: la asignación es por orden de reserva.</p>
+    <p class="sp-note reveal">Todos los planes incluyen proyección recurrente de tu video de marca (máx. 30 s) en la pantalla LED principal y cobertura en las redes oficiales de CIDEA. La inversión cubre el espacio publicitario; la personalización del stand tiene costo aparte (se contrata con "+STAGE"). Varias posiciones son exclusivas o de unidades contadas: la asignación es por orden de reserva.</p>
 
     <div class="sp-cta reveal">
       <div>
@@ -591,7 +563,6 @@ footer a.f-gold{color:var(--amber)}
   </div>
 </section>
 
-<!-- ============ REGISTRO ============ -->
 <section id="registro">
   <div class="wrap">
     <span class="kicker">Asegura tu lugar</span>
@@ -630,7 +601,6 @@ footer a.f-gold{color:var(--amber)}
 <a class="fab" href="https://forms.gle/bj2gTruXTDgXhCGX9" target="_blank" rel="noopener">🎟️ Reserva tu cupo</a>
 
 <script>
-// ---- Cuenta regresiva (23/10/2026 08:30 VET, UTC-4) ----
 const target = new Date('2026-10-23T08:30:00-04:00').getTime();
 function tick(){
   const d = target - Date.now();
@@ -643,14 +613,12 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
-// ---- Reveal on scroll ----
 const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ---- Dona de formatos ----
 const data = [
-  {l:'Conferencias', v:13, c:'#12a5a0'},
-  {l:'Cierre y social', v:5, c:'#5d6b7a'},
+  {l:'Conferencias y conversatorio', v:12, c:'#12a5a0'},
+  {l:'Institucional y cierre', v:5, c:'#5d6b7a'},
   {l:'Aperturas', v:2, c:'#2f6bff'},
   {l:'Panel', v:1, c:'#7c5cff'},
   {l:'Propuesta de alianza', v:1, c:'#22a06b'}
